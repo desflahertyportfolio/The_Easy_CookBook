@@ -28,3 +28,46 @@ body {
     margin-bottom: 50px;
     border-radius: 10px;
 }
+
+.enquire-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+/* -------------BUTTONS----------------------------------- */
+
+.btn-sign {
+    width: 100px;
+}
+
+.btn-cta {
+    font-weight: bold;
+    border-radius: 23px;
+    width: 180px;
+    text-align: center;
+
+}
+
+.btn-grey {
+    background-color: #8f8f8f;
+}
+
+
+.btn-red {
+    color: white;
+    background-color: #f05f40;
+    border-color: #f05f40;
+}
+
+.btn-red:hover,
+.btn-red:active,
+.btn-red:focus,
+.btn-red:active:focus {
+    background-color: #df4929;
+    border-color: #df4929;
+    color: white;
+}

@@ -26,6 +26,11 @@ else:
 mongo = PyMongo(app)
 
 @app.route('/')
+def get_index():
+    return render_template('index.html')
+
+
+
 @app.route('/get_cuisine')
 def get_cuisine():
     return render_template("cuisine.html", cuisine=mongo.db.Cuisine.find())
