@@ -12,7 +12,9 @@ app.config["MONGO_URI"] ='mongodb+srv://root:Allergan99@myfirstcluster-lgqe5.mon
 
 app.debug = False
 if app.debug == True:
+    
     import config
+    
     app.config["MONGO_DBNAME"] = config.DB_CONFIG['MONGO_DBNAME']
     app.config["MONGO_URI"] = config.DB_CONFIG['MONGO_URI']
 else:
