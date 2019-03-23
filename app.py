@@ -11,7 +11,6 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] ='CookBook'
 app.config["MONGO_URI"] ='mongodb+srv://root:Allergan99@myfirstcluster-lgqe5.mongodb.net/CookBook'
 
-
 """
 app.debug = False
 if app.debug == True:
