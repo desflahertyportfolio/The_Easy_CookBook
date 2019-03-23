@@ -7,16 +7,21 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
-"""
+
 app.config["MONGO_DBNAME"] ='CookBook'
 app.config["MONGO_URI"] ='mongodb+srv://root:Allergan99@myfirstcluster-lgqe5.mongodb.net/CookBook'
+
+
 """
-
-
-import config
-app.config["MONGO_DBNAME"] = config.DB_CONFIG['MONGO_DBNAME']
-app.config["MONGO_URI"] = config.DB_CONFIG['MONGO_URI']
-
+app.debug = False
+if app.debug == True:
+    import config
+    app.config["MONGO_DBNAME"] = config.DB_CONFIG['MONGO_DBNAME']
+    app.config["MONGO_URI"] = config.DB_CONFIG['MONGO_URI']
+else:
+    app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
+    app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+"""
 
 
 mongo = PyMongo(app)
