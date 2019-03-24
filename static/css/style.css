@@ -18,11 +18,15 @@ body {
     background-attachment: fixed;
 }
 
+/************CONTROL LOGO TEXT SIZE ON MOBILE **************************************/
+
 @media screen and (max-width: 440px) {
  nav .brand-logo {
     font-size: 1.2rem;
   }
 }
+
+/************STYLING HOMEPAGE *****************************************************/
 
 nav .brand-logo {
     padding-left: 20px
@@ -34,7 +38,10 @@ font-size: 1.2rem;
 padding-right: 20px;
 }
 
-
+.register-text {
+    color: #FFF;
+    font-size: 2rem;
+}
 
 
 
