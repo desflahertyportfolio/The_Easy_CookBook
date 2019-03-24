@@ -25,8 +25,8 @@ else:
 mongo = PyMongo(app)
 
 @app.route('/')
-@app.route('/index')
-def index():
+@app.route('/home')
+def home():
     return render_template("index.html")
 
 @app.route('/recipes')
