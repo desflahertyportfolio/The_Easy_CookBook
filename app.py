@@ -22,17 +22,19 @@ else:
     app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 """
 
-
 mongo = PyMongo(app)
 
 @app.route('/')
-def get_index():
-    return render_template('index.html')
+@app.route('/index')
+def index():
+    return render_template("index.html")
 
+@app.route('/recipes')
+def recipes():
+    return render_template("recipes.html")
 
-
-@app.route('/get_cuisine')
-def get_cuisine():
+@app.route('/cuisine')
+def cuisine():
     return render_template("cuisine.html", cuisine=mongo.db.Cuisine.find())
 
 
