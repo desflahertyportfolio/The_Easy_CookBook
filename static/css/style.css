@@ -44,5 +44,10 @@ padding-right: 20px;
     font-size: 2rem;
 }
 
+/************STYLING RECIPE PAGE *****************************************************/
 
-
+.collapsible-header {
+    width: 20%;
+    background-color: transparent;
+    color:#FFF;
+}
