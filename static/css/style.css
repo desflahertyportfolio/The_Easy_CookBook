@@ -54,7 +54,17 @@ padding-right: 20px;
 }
 
 
-.dropdown-content{
-   width: max-content !important;
-   height:auto !important;
+.recipe-container {
+    background-color: rgba(255, 255, 255, .8);
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+
+.recipe-heading {
+    color: #000;
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
 }

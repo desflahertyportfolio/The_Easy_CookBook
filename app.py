@@ -31,11 +31,15 @@ def home():
 
 @app.route('/recipes')
 def recipes():
-    return render_template("recipes.html")
+    return render_template("recipes.html",cuisine=mongo.db.Cuisine.find())
+    
+ 
 
 @app.route('/cuisine')
 def cuisine():
     return render_template("cuisine.html", cuisine=mongo.db.Cuisine.find())
+    
+    
 
 
 if __name__ == '__main__':
