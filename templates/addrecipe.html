@@ -1,0 +1,174 @@
+{% extends 'base.html' %} {% block content %}
+
+<main class="container recipe-container margin-top-20">
+    
+    <div class="row">
+        <p class="recipe-heading">Add Recipe</p>
+    </div>
+     
+    <div class="row">
+        <form action="{{ url_for('insert_recipe') }}" method="POST"  class="col s12">
+           
+           <div class="row">
+           <div class="input-field col s12"> 
+           <select id="cuisine" name="cuisine_name">
+            <option value="" disabled selected>Choose Cuisine</option>
+            {% for cuisine in cuisine %}
+            <option value="{{cuisine.cuisine_name}}">{{cuisine.cuisine_name}}</option>
+            {% endfor %}
+            </select>
+             <label>Cuisine Type</label>
+            </div>
+             </div>
+             
+            <div class="row">
+           <div class="input-field col s12"> 
+           <select id="course" name="course_name">
+            <option value="" disabled selected>Choose Course Type</option>
+            {% for course in course %}
+            <option value="{{course.course_name}}">{{course.course_name}}</option>
+            {% endfor %}
+            </select>
+             <label>Meal Course</label>
+            </div>
+             </div>
+             
+            <div class="row">
+           <div class="input-field col s12"> 
+           <select id="occasion" name="occasion_name">
+            <option value="" disabled selected>Choose Occasion Type</option>
+            {% for occasion in occasion %}
+            <option value="{{occasion.occasion_name}}">{{occasion.occasion_name}}</option>
+            {% endfor %}
+            </select>
+             <label>Occasion</label>
+            </div>
+             </div>
+             
+            <div class="row">
+           <div class="input-field col s12"> 
+           <select id="diets" name="diet_name">
+            <option value="" disabled selected>Special Diet</option>
+            {% for diet in diet %}
+            <option value="{{diet.diet_name}}">{{diet.diet_name}}</option>
+            {% endfor %}
+            </select>
+             <label>Choose Diet</label>
+            </div>
+             </div>
+             
+             
+             <div class="row">
+             <div class="input-field col s12">
+                <input id="recipe_name" name="recipe_name" type="text" class="validate" required>
+                <label>Recipe Name</label>
+            </div>
+             </div>
+            
+                <div class="row">
+                <div class="input-field col s12">
+                    <input id="prep_name" name="prep_name" type="text">
+                <label>Preparation Time</label>
+                    </select>
+                    <label>Preparation Time</label>
+                </div>
+            </div>
+            
+             <div class="row">
+                <div class="input-field col s12">
+                    <input id="cook_name" name="cook_name" type="text">
+                <label>Cook Time</label>
+                    </select>
+                    <label>Cook Time</label>
+                </div>
+            </div>
+            
+             <div class="row">
+                <div class="input-field col s12">
+                    <input id="serves" name="serves" type="text">
+                <label>Serves</label>
+                    </select>
+                    <label>Serves</label>
+                </div>
+            </div>
+            
+            <div class="row">
+           <div class="input-field col s12"> 
+           <select id="skill" name="skill_name">
+            <option value="" disabled selected>Skill Level</option>
+            {% for skill in skill %}
+            <option value="{{skill.Skill}}">{{skill.Skill}}</option>
+            {% endfor %}
+            </select>
+             <label>Choose Skill Level</label>
+            </div>
+             </div>
+             
+             <div class="row">
+                <div class="input-field col s12">
+                    <input id="ingredients" name="ingredients" type="text" class="materialize-textarea" required>
+                <label>Ingredients</label>
+                    </select>
+                    <label>Ingredients</label>
+                </div>
+            </div>
+            
+                 <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="instruction_step_1" name="instruction_step_1" type="textarea" class="materialize-textarea"></textarea>
+                    <label>Cooking Instructions Step 1</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="instruction_step_2" name="instruction_step_2" type="textarea" class="materialize-textarea"></textarea>
+                    <label>Cooking Instructions Step 2</label>
+                </div>
+            </div>
+
+                <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="instruction_step_3" name="instruction_step_3" type="textarea" class="materialize-textarea"></textarea>
+                    <label>Cooking Instructions Step 3</label>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="instruction_step_4" name="instruction_step_4" type="textarea" class="materialize-textarea"></textarea>
+                    <label>Cooking Instructions Step 4</label>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="instruction_step_5" name="instruction_step_5" type="textarea" class="materialize-textarea"></textarea>
+                    <label>Cooking Instructions Step 5</label>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="instruction_step_6" name="instruction_step_6" type="textarea" class="materialize-textarea"></textarea>
+                    <label>Cooking Instructions Step 6</label>
+                </div>
+            </div>
+            
+            
+            
+            
+
+
+
+            <div class="row">
+                <button class="btn waves-effect waves-light" type="submit">Add Recipe
+                <i class="material-icons right">playlist_add</i>
+            </button>
+            </div>
+        </form>
+
+   
+
+</main>
+{% endblock %}

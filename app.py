@@ -31,13 +31,40 @@ def home():
 
 @app.route('/recipes')
 def recipes():
-    return render_template("recipes.html",cuisine=mongo.db.Cuisine.find())
+    return render_template("recipes.html")
+   
+@app.route('/cuisine')
+def cuisine():
+    return render_template("cuisine.html", cuisine=mongo.db.Cuisine.find())    
+    
+    
+    
+    
+@app.route('/add_recipes')
+def add_recipes():
+    return render_template('addrecipe.html',
+    cuisine=mongo.db.Cuisine.find(),
+    course=mongo.db.Course.find(),
+    occasion=mongo.db.Occasion.find(),
+    diet=mongo.db.Special_Diets.find(),
+    skill=mongo.db.Skill.find()
+    )
+   
+  
+    
+    
+    
+    
+    
+@app.route('/insert_recipe', methods=['POST'])
+def insert_recipe():
+    recipe =  mongo.db.Recipe
+    recipe.insert_one(request.form.to_dict())
+    return redirect(url_for('recipes'))    
     
  
 
-@app.route('/cuisine')
-def cuisine():
-    return render_template("cuisine.html", cuisine=mongo.db.Cuisine.find())
+
     
     
 
