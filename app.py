@@ -95,13 +95,13 @@ def update_recipe(recipe_id):
         'instruction_step_5':request.form.get('instruction_step_5'),
         'instruction_step_6':request.form.get('instruction_step_6')
     })
-    return redirect(url_for('recipe'))  
+    return redirect(url_for('recipes'))  
     
 
 @app.route('/delete_recipe/<recipe_id>', methods=["POST"])
 def delete_recipe(recipe_id):
     mongo.db.Recipe.remove({'_id': ObjectId(recipe_id)})
-    return redirect(url_for('recipe'))    
+    return redirect(url_for('recipes'))    
  
 
 
