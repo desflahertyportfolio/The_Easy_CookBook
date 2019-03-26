@@ -79,6 +79,7 @@ def update_recipe(recipe_id):
     recipe.update( {'_id': ObjectId(recipe_id)},
     {
         'recipe_name':request.form.get('recipe_name'),
+        'recipe_description':request.form.get('recipe_description'),
         'cuisine_name':request.form.get('cuisine_name'),
         'course':request.form.get('course'),
         'occasion':request.form.get('occasion'),
