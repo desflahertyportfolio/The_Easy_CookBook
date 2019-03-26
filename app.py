@@ -38,7 +38,8 @@ def cuisine():
     
 @app.route('/recipes')
 def recipes():
-    return render_template("recipes.html")    
+    return render_template("recipes.html",
+                            recipe=mongo.db.Recipe.find())    
     
     
 @app.route('/add_recipes')
@@ -68,7 +69,7 @@ def edit_recipe(recipe_id):
     all_diets =  mongo.db.Special_Diets.find()
     all_skills =  mongo.db.Skill.find()
     return render_template('editrecipe.html', recipe=the_recipe,
-                           cuisne=all_cuisines,course=all_courses,
+                           cuisine=all_cuisines,course=all_courses,
                            occasion=all_occasions,diets=all_diets,skill=all_skills)
                            
                            
@@ -87,7 +88,6 @@ def update_recipe(recipe_id):
         'cook_time':request.form.get('cook_time'),
         'prep_time':request.form.get('prep_time'),
         'serves':request.form.get('serves'),
-        'skill_level':request.form.get('skill_level'),
         'instruction_step_1':request.form.get('instruction_step_1'),
         'instruction_step_2':request.form.get('instruction_step_2'),
         'instruction_step_3':request.form.get('instruction_step_3'),
