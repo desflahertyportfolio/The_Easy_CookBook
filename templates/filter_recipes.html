@@ -7,7 +7,7 @@
     </div>
     
         <div class="row">
-        <form action="}" method="POST"  class="col s12">    
+        <form action="" method="POST"  class="col s12">    
         <div class="row">
            <div class="input-field col s4"> 
            <select id="cuisine" name="cuisine_name">
@@ -62,13 +62,23 @@
             
             <div class="collapsible-body">
                 <span>
-                {{recipe.recipe_description}} 
-                 {{recipe.cuisine_name}}
+                {{recipe.recipe_description}}
+                {{recipe.cuisine_name}}
             </span>
             </div>
         </li>
         {% endfor %}
     </ul>
 </div>
+
+
+
+
+
+
+
+
+
+
 
 {% endblock %}

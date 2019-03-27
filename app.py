@@ -39,7 +39,8 @@ def cuisine():
 @app.route('/recipes')
 def recipes():
     return render_template("recipes.html",
-                            recipe=mongo.db.Recipe.find())    
+                            recipe=mongo.db.Recipe.find(),
+                             cuisine=mongo.db.Cuisine.find())    
     
     
 @app.route('/add_recipes')
@@ -104,6 +105,9 @@ def delete_recipe(recipe_id):
     mongo.db.Recipe.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('recipes'))    
  
+
+
+
 
 
     
