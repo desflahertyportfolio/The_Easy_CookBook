@@ -6,8 +6,8 @@
         <p class="recipe-heading">View Recipe</p>
     </div>
     
-        <div class="row">
-        <form action="}" method="POST"  class="col s12">    
+<div class="row">
+        <form action="/" method="POST"  class="col s12">    
         <div class="row">
            <div class="input-field col s4"> 
            <select id="cuisine" name="cuisine_name">
@@ -20,16 +20,11 @@
             </div>
              </div>
              <div class="row">
-                <button class="btn waves-effect waves-light" type="submit">Filter
-                <i class="material-icons right">playlist_add</i>
+               <a href="{{url_for('filter_recipes', recipes=recipes)}}" <button class="btn waves-effect waves-light" type="submit">Filter
+                <i class="material-icons right">playlist_add</i></a>
             </button>
             </div>
         </form>
-        
-        
-        
-        
-        
         
 
 <div class="row">
@@ -63,7 +58,7 @@
             <div class="collapsible-body">
                 <span>
                 {{recipe.recipe_description}} 
-                 {{recipe.cuisine_name}}
+                {{recipe.cuisine_name}}
             </span>
             </div>
         </li>

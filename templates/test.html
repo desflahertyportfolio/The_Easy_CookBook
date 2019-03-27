@@ -1,0 +1,27 @@
+<form action="/filteredrecipes" method="POST">
+           <div class="row">
+               <div class="col-sm-12 col-md-6 col-lg-4">
+                   <div class="form-group">
+                        <label for="course">Filter by course: </label>
+                        <select class="form-control" name="course" id="coursetype">
+                            <option selected>Please choose...</option>
+                        {% for course in courses %}
+                          <option value="{{course.course_name}}"> {{course.course_name}}</option>
+                        {% endfor %}
+                    </select>
+                   </div>
+               </div>
+                 <div class="col-sm-12 col-md-6 col-lg-4">
+                   <div class="form-group">
+                        <label for="course">Filter by cuisine: </label>
+                        <select class="form-control" id="course">
+                            <option selected>Please choose...</option>
+                        {% for cuisine in cuisine %}
+                              <option value="{{cuisine.cuisine}}"> {{cuisine.cuisine}}</option>
+                         {% endfor %}
+                    </select>
+                   </div>
+               </div>
+           </div>
+            <a href="{{url_for('filter_recipes', recipes=recipes)}}" class="btn btn-primary">Submit</a>
+        </form>
