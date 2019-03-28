@@ -2,9 +2,6 @@
 
 <main class="container recipe-container margin-top-20">
     
-    <div class="row">
-        <p class="recipe-heading">Recipe Details</p>
-    </div>
     
     <div class="col-xs-12 center">
                 <h2 class=" inline"> {{ recipe.recipe_name }}</h2>
@@ -33,8 +30,7 @@
 
         </div>
     
-    
-    <!--INGREDIENT CONTAINER-->
+   
             <div class="col-xs-12 col-sm-12 col-md-6">
                 <div class="row recipe_image_container">
 
@@ -69,11 +65,12 @@
                     <div class="col-xs-12 single-recipe-instructions">
                         <h3 class="">Instructions</h3>
                         <ol class="no-padding">
-                            {% for instruction in recipe.instructions %}
-                            <li>
-                                <p>{{ instruction }}</p>
-                            </li>
-                            {% endfor %}
+                            <li><p>{{ recipe.instruction_step_1}}</p></li>
+                            <li><p>{{ recipe.instruction_step_2}}</p></li>
+                            <li><p>{{ recipe.instruction_step_3}}</p></li>
+                            <li><p>{{ recipe.instruction_step_4}}</p></li>
+                            <li><p>{{ recipe.instruction_step_5}}</p></li>
+                            <li><p>{{ recipe.instruction_step_6}}</p></li>
                         </ol>
                     </div>
                 </div>

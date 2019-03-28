@@ -101,7 +101,8 @@ def update_recipe(recipe_id):
         'instruction_step_3':request.form.get('instruction_step_3'),
         'instruction_step_4':request.form.get('instruction_step_4'),
         'instruction_step_5':request.form.get('instruction_step_5'),
-        'instruction_step_6':request.form.get('instruction_step_6')
+        'instruction_step_6':request.form.get('instruction_step_6'),
+        'image':request.form.get('image')
     })
     return redirect(url_for('recipes'))  
     
