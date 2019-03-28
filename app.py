@@ -77,7 +77,7 @@ def edit_recipe(recipe_id):
     all_skills =  mongo.db.Skill.find()
     return render_template('editrecipe.html', recipe=the_recipe,
                            cuisine=all_cuisines,course=all_courses,
-                           occasion=all_occasions,diets=all_diets,skill=all_skills)
+                           occasion=all_occasions,diet=all_diets,skill=all_skills)
                            
                            
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
