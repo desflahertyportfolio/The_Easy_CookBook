@@ -106,10 +106,10 @@ def delete_recipe(recipe_id):
     return redirect(url_for('recipes'))    
  
  
-@app.route('/filter_recipes',methods=['POST','GET'])
+@app.route('/filter_recipes',methods=['GET','POST'])
 def filter_recipes():
-    recipes = mongo.db.Recipe.find({"cuisine_name": request.form.get('cuisine_name')})
-    return render_template("filter_recipes.html",recipes=recipes) 
+    recipes = mongo.db.Recipe.find({'cuisine_name': request.form.get('cuisine_name')})
+    return render_template("recipes.html",recipes=recipes) 
                              
 """  
 recipes= mongo.db.Recipe.aggregate([ { "$match" : { "$and" [ { "course_name" : course },{ "cuisine_name":cuisine }] }} ])                         
