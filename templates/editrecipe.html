@@ -30,7 +30,7 @@
            <select id="course" name="course_name">
             <option value="" disabled selected>Choose Course Type</option>
             {% for course in course %}
-            {% if course.course_name == recipe.course%}
+            {% if course.course_name == recipe.course_name%}
              <option value="{{course.course_name}}"selected >{{course.course_name}}</option>
                       {%else%}
                       <option value="{{course.course_name}}">{{course.course_name}}</option>
@@ -46,7 +46,7 @@
            <select id="occasion" name="occasion_name">
             <option value="" disabled selected>Choose Occasion Type</option>
             {% for occasion in occasion %}
-            {% if occasion.occasion_name == recipe.occasion%}
+            {% if occasion.occasion_name == recipe.occasion_name%}
              <option value="{{occasion.occasion_name}}"selected >{{occasion.occasion_name}}</option>
                       {%else%}
                       <option value="{{occasion.occasion_name}}">{{occasion.occasion_name}}</option>
@@ -62,10 +62,10 @@
            <select id="diets" name="diet_name">
             <option value="" disabled selected>Special Diet</option>
             {% for diet in diet %}
-             {% if diet.diet_name == recipe.special_diets%}
-             <option value="{{diet.diet_name}}"selected >{{diet.diet_name}}</option>
+             {% if special_diets.diet_name == recipe.diet_name%}
+             <option value="{{special_diets.diet_name}}"selected >{{special_diets.diet_name}}</option>
                       {%else%}
-                      <option value="{{diet.diet_name}}">{{diet.diet_name}}</option>
+                      <option value="{{special_diets.diet_name}}">{{special_diets.diet_name}}</option>
                       {% endif %}
                   {% endfor %}
                 </select>
@@ -83,7 +83,7 @@
             
             <div class="row">
              <div class="input-field col s12">
-                <input id="recipe_description" name="recipe_description" type="text" class="validate" value="{{recipe.description}}">
+                <input id="recipe_description" name="recipe_description" type="text" class="validate" value="{{recipe.recipe_description}}">
                 <label>Recipe Description</label>
             </div>
              </div>
@@ -123,7 +123,7 @@
            <select id="skill" name="skill_name">
             <option value="" disabled selected>Skill Level</option>
             {% for skill in skill %}
-            {% if skill.skill == recipe.skill_level%}
+            {% if skill.skill == recipe.skill_name%}
              <option value="{{skill.skill}}"selected >{{skill.skill}}</option>
                       {%else%}
                       <option value="{{skill}}">{{skill}}</option>
@@ -145,7 +145,7 @@
             
                  <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="instruction_step_1" name="instruction_step_1" type="textarea" class="materialize-textarea" value="{{recipe.instruction_step_1}}"></textarea>
+                    <textarea id="instruction_step_1" name="recipe_instruction_step_1" type="textarea" class="materialize-textarea" value="{{recipe.instruction_step_1}}"></textarea>
                     <label>Cooking Instructions Step 1</label>
                 </div>
             </div>

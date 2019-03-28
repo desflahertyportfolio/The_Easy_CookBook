@@ -40,7 +40,13 @@ def cuisine():
 def recipes():
     return render_template("recipes.html",
                             recipe=mongo.db.Recipe.find(),
-                             cuisine=mongo.db.Cuisine.find())    
+                            cuisine=mongo.db.Cuisine.find())    
+  
+@app.route('/single_recipes/<recipe_id>')
+def single_recipes(recipe_id):
+    the_recipe =  mongo.db.Recipe.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("singlerecipe.html",
+                            recipe=the_recipe)  
     
     
 @app.route('/add_recipes')
@@ -106,16 +112,22 @@ def delete_recipe(recipe_id):
     return redirect(url_for('recipes'))    
  
  
-@app.route('/filter_recipes',methods=['GET','POST'])
-def filter_recipes():
-    recipes = mongo.db.Recipe.find({'cuisine_name': request.form.get('cuisine_name')})
-    return render_template("recipes.html",recipes=recipes) 
+
                              
 """  
 recipes= mongo.db.Recipe.aggregate([ { "$match" : { "$and" [ { "course_name" : course },{ "cuisine_name":cuisine }] }} ])                         
 """                       
                              
-
+@app.route('/filter_recipes', methods=["GET", "POST"])
+def filter_recipes():
+    cuisine = mongo.db.Cuisine.find()
+    if request.method == "POST":
+        cuisine = request.form.get('cuisine_name')
+        recipes= mongo.db.Recipe.find({"cuisine_name" : cuisine})
+        return render_template('filter_recipes.html', recipe=recipes,cuisine=cuisine)
+    else:
+        recipes = mongo.db.Recipe.find()
+        return render_template('recipes.html', recipe=recipes, cuisine=cuisine)
 
     
 
