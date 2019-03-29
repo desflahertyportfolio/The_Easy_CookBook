@@ -41,7 +41,7 @@ def recipes():
     return render_template("recipes.html",
                             recipe=mongo.db.Recipe.find(),
                             cuisine=mongo.db.Cuisine.find(),
-                             course=mongo.db.Course.find())    
+                            course=mongo.db.Course.find())    
   
 @app.route('/single_recipes/<recipe_id>')
 def single_recipes(recipe_id):
@@ -124,8 +124,10 @@ recipes= mongo.db.Recipe.aggregate([ { "$match" : { "$and" [ { "course_name" : c
 @app.route('/filter_recipes', methods=["GET", "POST"])
 def filter_recipes():
     cuisine = mongo.db.Cuisine.find()
+    
     if request.method == "POST":
         cuisine = request.form.get('cuisine_name')
+        
         recipes= mongo.db.Recipe.find({"cuisine_name" : cuisine})
         return render_template('filter_recipes.html', recipe=recipes,cuisine=cuisine)
     else:
