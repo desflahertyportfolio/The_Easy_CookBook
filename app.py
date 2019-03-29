@@ -124,12 +124,12 @@ recipes= mongo.db.Recipe.aggregate([ { "$match" : { "$and" [ { "course_name" : c
 @app.route('/filter_recipes', methods=["GET", "POST"])
 def filter_recipes():
     cuisine = mongo.db.Cuisine.find()
-    
+   
     if request.method == "POST":
         cuisine = request.form.get('cuisine_name')
         
-        recipes= mongo.db.Recipe.find({"cuisine_name" : cuisine})
-        return render_template('filter_recipes.html', recipe=recipes,cuisine=cuisine)
+        recipes= mongo.db.Recipe.find({"cuisine_name" : cuisine} )
+        return render_template('filter_recipes.html', recipe=recipes, cuisine=cuisine)
     else:
         recipes = mongo.db.Recipe.find()
         return render_template('recipes.html', recipe=recipes, cuisine=cuisine)

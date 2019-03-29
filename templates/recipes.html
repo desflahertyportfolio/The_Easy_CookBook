@@ -17,9 +17,16 @@
             {% endfor %}
             </select>
              <label>Cuisine Type</label>
-             
             </div>
-        
+            <div class="input-field col l4"> 
+           <select id="course_name" name="course_name">
+            <option value="" disabled selected>Choose Course</option>
+            {% for course in course %}
+            <option value="{{course.course_name}}">{{course.course_name}}</option>
+            {% endfor %}
+            </select>
+             <label>Course Type</label>
+            </div>
     </div>
             
            
