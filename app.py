@@ -40,7 +40,8 @@ def cuisine():
 def recipes():
     return render_template("recipes.html",
                             recipe=mongo.db.Recipe.find(),
-                            cuisine=mongo.db.Cuisine.find())    
+                            cuisine=mongo.db.Cuisine.find(),
+                             course=mongo.db.Course.find())    
   
 @app.route('/single_recipes/<recipe_id>')
 def single_recipes(recipe_id):
@@ -102,7 +103,8 @@ def update_recipe(recipe_id):
         'instruction_step_4':request.form.get('instruction_step_4'),
         'instruction_step_5':request.form.get('instruction_step_5'),
         'instruction_step_6':request.form.get('instruction_step_6'),
-        'image':request.form.get('image')
+        'image':request.form.get('image'),
+        'author':request.form.get('author')
     })
     return redirect(url_for('recipes'))  
     
