@@ -6,32 +6,7 @@
         <p class="recipe-heading">View Recipe</p>
     </div>
     
-<div class="row">
-        <form action="/filter_recipes" method="POST"  class="col s12 l12">    
-        <div class="row">
-           <div class="input-field col l4"> 
-           <select id="cuisine_name" name="cuisine_name">
-            <option value="" disabled selected>Choose Cuisine</option>
-            {% for cuisine in cuisine %}
-            <option value="{{cuisine.cuisine_name}}">{{cuisine.cuisine_name}}</option>
-            {% endfor %}
-            </select>
-             <label>Cuisine Type</label>
-              
-            </div>
-        
-            </div>
-            
-            <div class="row">
-            <button class="btn waves-effect waves-light" type="submit">Filter
-            <i class="material-icons right">playlist_add</i>
-            </button>
-            </div>
-        </form>
-        </div>
-        
-       
-        
+
 
 <div class="row">
     <ul class="collapsible" data-collapsible="accordion">
@@ -47,13 +22,15 @@
                     <strong>{{recipe.recipe_name}}</strong> 
                 </div>
                     
-                    <div class ="col s2">
-                    <div class ="inline_actions">
+                    <div class ="col s4">
+                    <div class ="inline">
                     <form action="{{url_for('delete_recipe', recipe_id=recipe._id)}}" method="POST">
-                        <button type="submit" class="waves-effect waves-light btn btn_small">Delete</button>
-                    </form>
-                    <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn_small blue">Edit Recipe</a>
-                    <a href="{{url_for('single_recipes', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn_small blue">View</a>
+                        
+                        
+                     <a href="{{url_for('single_recipes', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn_small teal lighten-1">View</a>
+                    <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn_small teal lighten-1">Edit Recipe</a>
+                    <button type="submit"  class="waves-effect waves-light  red lighten-1 btn btn_small">Delete</button>
+                   </form>
                 </div>
                 </div>
             
@@ -65,6 +42,7 @@
                 <span>
                 {{recipe.recipe_description}} 
                 {{recipe.cuisine_name}}
+                {{recipe.course_name}}
             </span>
             </div>
         </li>

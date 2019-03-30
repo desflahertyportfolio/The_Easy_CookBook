@@ -115,24 +115,36 @@ def delete_recipe(recipe_id):
     return redirect(url_for('recipes'))    
  
  
-
+                            
                              
-"""  
-recipes= mongo.db.Recipe.aggregate([ { "$match" : { "$and" [ { "course_name" : course },{ "cuisine_name":cuisine }] }} ])                         
-"""                       
-                             
-@app.route('/filter_recipes', methods=["GET", "POST"])
-def filter_recipes():
+@app.route('/filter_recipes_cuisine', methods=["GET", "POST"])
+def filter_recipes_cuisine():
     cuisine = mongo.db.Cuisine.find()
-   
+    course = mongo.db.Course.find()
     if request.method == "POST":
         cuisine = request.form.get('cuisine_name')
-        
-        recipes= mongo.db.Recipe.find({"cuisine_name" : cuisine} )
-        return render_template('filter_recipes.html', recipe=recipes, cuisine=cuisine)
+        course = request.form.get('course_name')
+        recipes= mongo.db.Recipe.find({"cuisine_name" :cuisine})
+        #recipes= mongo.db.Recipe.find({"course_name" :course})
+        #recipes= mongo.db.recipes.aggregate([{"$match" :{"$and": [{ "course_name" : course }, { "cuisine_name" : cuisine }]   }}])
+        return render_template ('filter_recipes.html', recipe=recipes,cuisine=cuisine)
     else:
         recipes = mongo.db.Recipe.find()
         return render_template('recipes.html', recipe=recipes, cuisine=cuisine)
+
+@app.route('/filter_recipes_course', methods=["GET", "POST"])
+def filter_recipes_course():
+    cuisine = mongo.db.Cuisine.find()
+    course = mongo.db.Course.find()
+    if request.method == "POST":
+        cuisine = request.form.get('cuisine_name')
+        course = request.form.get('course_name')
+        recipes= mongo.db.Recipe.find({"course_name" :course})
+        return render_template ('filter_recipes.html', recipe=recipes,course=course)
+    else:
+        recipes = mongo.db.Recipe.find()
+        return render_template('recipes.html', recipe=recipes, course=course)
+
 
     
 
