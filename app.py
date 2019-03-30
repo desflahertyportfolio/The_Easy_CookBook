@@ -140,10 +140,10 @@ def filter_recipes_course():
         cuisine = request.form.get('cuisine_name')
         course = request.form.get('course_name')
         recipes= mongo.db.Recipe.find({"course_name" :course})
-        return render_template ('filter_recipes.html', recipe=recipes,course=course)
+        return render_template ('filter_recipes.html', recipe=recipes,course=course,cusine=cuisine)
     else:
         recipes = mongo.db.Recipe.find()
-        return render_template('recipes.html', recipe=recipes, course=course)
+        return render_template('recipes.html', recipe=recipes, course=course,cuisine=cuisine)
 
 
     
