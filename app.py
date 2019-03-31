@@ -144,6 +144,16 @@ def filter_recipes_course():
         return render_template('recipes.html', recipe=recipes, course=course)
 
 
+@app.route("/find_ingredient", methods=['POST'])
+def find_ingredient():
+    recipe_category = mongo.db.Recipe.find(
+        {"ingredients": {"$regex": request.form.get("ingredients"), "$options": 'i'}})
+    return render_template(
+        'filter_recipes.html',
+        recipe_category=recipe_category)
+
+
+
 
 
 

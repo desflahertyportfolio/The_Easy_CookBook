@@ -38,7 +38,23 @@
             </div>
             </form>
             
-            
+            <div id="ingredient_search" class="triggered_search_box">
+                    <div class="inner-box inline">
+                        <form class="center" action="{{url_for('find_ingredient')}}" method="POST">
+                            <p class="center search-category-heading"><b>Search Ingredient</b></p>
+                            <div class="inline">
+                                <input required class="search-ingredient" type="text" name="ingredient_category" id="ingredient_category" placeholder='e.g. chicken'>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="center">
+                                <input class="inline" type="submit" value="Select" />
+                                <p class="close-btn inline">Close</p>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
             
      </div> 
 
@@ -77,6 +93,7 @@
                 {{recipe.recipe_description}} 
                 {{recipe.cuisine_name}}
                 {{recipe.course_name}}
+                {{recipe.ingredients}}
             </span>
             </div>
         </li>
