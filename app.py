@@ -118,10 +118,8 @@ def delete_recipe(recipe_id):
 @app.route('/filter_recipes_cuisine', methods=["GET", "POST"])
 def filter_recipes_cuisine():
     cuisine = mongo.db.Cuisine.find()
-    course = mongo.db.Course.find()
     if request.method == "POST":
         cuisine = request.form.get('cuisine_name')
-        course = request.form.get('course_name')
         recipes= mongo.db.Recipe.find({"cuisine_name" :cuisine})
         #recipes= mongo.db.Recipe.find({"course_name" :course})
         #recipes= mongo.db.recipes.aggregate([{"$match" :{"$and": [{ "course_name" : course }, { "cuisine_name" : cuisine }]   }}])
@@ -132,10 +130,8 @@ def filter_recipes_cuisine():
 
 @app.route('/filter_recipes_course', methods=["GET", "POST"])
 def filter_recipes_course():
-    cuisine = mongo.db.Cuisine.find()
     course = mongo.db.Course.find()
     if request.method == "POST":
-        cuisine = request.form.get('cuisine_name')
         course = request.form.get('course_name')
         recipes= mongo.db.Recipe.find({"course_name" :course})
         return render_template ('filter_recipes.html', recipe=recipes,course=course)
@@ -151,7 +147,31 @@ def find_ingredient():
       ingredients=request.form.get('ingredients')
       recipes= mongo.db.Recipe.find({"$text": {"$search": ingredients }})
       return render_template('filter_recipes.html',recipe=recipes,ingredients=ingredients)
+   else:
+        recipes = mongo.db.Recipe.find()
+        return render_template('recipes.html', recipe=recipes, ingredients=ingredients)
  
+
+@app.route("/find_multiple_categories", methods=["GET", "POST"])
+def find_multiple_categories():
+    cuisine = mongo.db.Cuisine.find()
+    if request.method == "POST":
+       ingredients = request.form.get("ingredients")
+       cuisine = request.form.get("cuisine_name")    
+       mongo.db.Recipe.create_index([("$**", "text")])
+       recipes= mongo.db.Recipe.find({"$text": {"$search": ingredients }})
+       
+       if cuisine == "" and ingredients:
+         recipes= mongo.db.Recipe.find({"$text": {"$search": ingredients }}) 
+         
+       elif cuisine and not ingredients:
+          recipes= mongo.db.Recipe.find({"cuisine_name" :cuisine})
+       
+       elif ingredients and cuisine:
+           recipes = mongo.db.Recipe.find({"$and": [{"cuisine_name": cuisine}, {
+                                           "$text": {"$search": ingredients }} ] })
+       return render_template('filter_recipes.html',recipe=recipes,ingredients=ingredients,cuisine=cuisine)
+
 
 
 if __name__ == '__main__':
