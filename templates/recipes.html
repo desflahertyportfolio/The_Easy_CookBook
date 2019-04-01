@@ -38,23 +38,15 @@
             </div>
             </form>
             
-            <div id="ingredients" class="triggered_search_box">
-                    <div class="inner-box inline">
-                        <form class="center" action="{{url_for('find_ingredient')}}" method="POST">
-                            <p class="center search-category-heading"><b>Search Ingredient</b></p>
-                            <div class="inline">
-                                <input required class="ingredients" type="text" name="ingredients" id="ingredients" placeholder='e.g. chicken'>
-                            </div>
-                            <br>
-                            <br>
-                            <div class="center">
-                                <input class="inline" type="submit" value="Select" />
-                               
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
+          
+                <form class="example" action="{{url_for('find_ingredient')}}" method="POST">
+                <input type="text" placeholder="Search.." name="ingredients">
+                <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+                
+            
+            
+            
             
      </div> 
 

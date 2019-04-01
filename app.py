@@ -146,18 +146,12 @@ def filter_recipes_course():
 
 @app.route("/find_ingredient", methods=["GET", "POST"])
 def find_ingredient():
-  mongo.db.Recipe.create_index([("$**", "text")])
-  mongo.db.Recipe.find({"$text": {"$search": ("cream") }})
-  return render_template(
-        'filter_recipes.html')
-        
-        
-
-  
-
-
-
-
+   if request.method == "POST":
+      mongo.db.Recipe.create_index([("$**", "text")])
+      ingredients=request.form.get('ingredients')
+      recipes= mongo.db.Recipe.find({"$text": {"$search": ingredients }})
+      return render_template('filter_recipes.html',recipe=recipes,ingredients=ingredients)
+ 
 
 
 if __name__ == '__main__':
