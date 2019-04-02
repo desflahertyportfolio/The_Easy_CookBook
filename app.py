@@ -156,41 +156,72 @@ def find_ingredient():
 def find_multiple_categories():
     cuisine = mongo.db.Cuisine.find()
     course = mongo.db.Course.find()
+    diet=mongo.db.Special_Diets.find()
     if request.method == "POST":
        ingredients = request.form.get("ingredients")
        cuisine = request.form.get("cuisine_name") 
        course = request.form.get("course_name")
+       diet=request.form.get("diet_name")
        mongo.db.Recipe.create_index([("$**", "text")])
        recipes= mongo.db.Recipe.find({"$text": {"$search": ingredients }})
        
-       if course and not cuisine and not ingredients:
+       if course and not cuisine and not ingredients and not diet:
          recipes= mongo.db.Recipe.find({"course_name" :course})
          
-       elif cuisine and not course  and not ingredients:
+       elif cuisine and not course  and not ingredients and not diet:
          recipes= mongo.db.Recipe.find({"cuisine_name" :cuisine})
          
          
-       elif ingredients and not course and not cuisine:
+       elif diet and not course and not cuisine and not ingredients:
+         recipes= mongo.db.Recipe.find({"diet_name" :diet}) 
+         
+       elif ingredients and not course and not cuisine and not diet:
             recipes= mongo.db.Recipe.find({"$text": {"$search": ingredients }})
           
           
-       elif course and cuisine and not ingredients:
+       elif course and cuisine and not ingredients and not diet:
               recipes = mongo.db.Recipe.find({"$and": [{"cuisine_name": cuisine}, {"course_name": course}] }) 
           
-       elif ingredients and cuisine and not course:
+       elif ingredients and cuisine and not course and not diet:
                recipes = mongo.db.Recipe.find({"$and": [{"cuisine_name": cuisine}, {
                                            "$text": {"$search": ingredients }} ] })   
        
-       elif ingredients and course and not cuisine:
+       elif ingredients and course and not cuisine and not diet:
                recipes = mongo.db.Recipe.find({"$and": [{"course_name": course}, {
                                            "$text": {"$search": ingredients }} ] })  
        
+       elif ingredients and diet and not cuisine and not course:
+               recipes = mongo.db.Recipe.find({"$and": [{"diet_name": diet}, {
+                                           "$text": {"$search": ingredients }} ] })
                                            
-       elif ingredients and cuisine and course:
+       elif ingredients and diet and cuisine and not course:
+               recipes = mongo.db.Recipe.find({"$and": [{"diet_name": diet},{"cuisine_name": cuisine}, {
+                                           "$text": {"$search": ingredients }} ] })  
+                                           
+       elif ingredients and diet and course and not cuisine:
+               recipes = mongo.db.Recipe.find({"$and": [{"diet_name": diet},{"course_name": course}, {
+                                           "$text": {"$search": ingredients }} ] })                                     
+                                           
+       
+       elif diet and course and cuisine and not ingredients:
+              recipes = mongo.db.Recipe.find({"$and": [{"cuisine_name": cuisine}, {"course_name": course}, {"diet_name" :diet} ]})
+              
+       elif diet and cuisine and not course and not ingredients:
+              recipes = mongo.db.Recipe.find({"$and": [{"cuisine_name": cuisine}, {"diet_name" :diet} ]})      
+       
+       
+       elif diet and course and not cuisine and not ingredients:
+              recipes = mongo.db.Recipe.find({"$and": [{"course_name": course}, {"diet_name" :diet} ]})  
+                                           
+       elif ingredients and cuisine and course and not diet:
            recipes = mongo.db.Recipe.find({"$and": [{"cuisine_name": cuisine}, {"course_name": course}, {
+                                           "$text": {"$search": ingredients }} ] }) 
+                                           
+       elif ingredients and cuisine and course and diet:
+           recipes = mongo.db.Recipe.find({"$and": [{"cuisine_name": cuisine}, {"course_name": course},{"diet_name" :diet}, {
                                            "$text": {"$search": ingredients }} ] })                                    
                                            
-       return render_template('filter_recipes.html',recipe=recipes,ingredients=ingredients,cuisine=cuisine,course=course)
+       return render_template('filter_recipes.html',recipe=recipes,ingredients=ingredients,cuisine=cuisine,course=course,diet=diet)
 
 
 
