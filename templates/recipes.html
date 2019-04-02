@@ -11,6 +11,7 @@
            <div class="input-field col s12 m6 l3"> 
            <select id="cuisine_name" name="cuisine_name">
             <option value="" disabled selected>Choose Cuisine</option>
+            <option value>None</option>
             {% for cuisine in cuisine %}
             <option value="{{cuisine.cuisine_name}}">{{cuisine.cuisine_name}}</option>
             {% endfor %}
@@ -19,6 +20,7 @@
              <div class="input-field col s12 m6 l3">
            <select id="course_name" name="course_name">
             <option value="" disabled selected>Choose Course</option>
+            <option value>None</option>
             {% for course in course %}
             <option value="{{course.course_name}}">{{course.course_name}}</option>
             {% endfor %}
@@ -27,25 +29,22 @@
             <div class="input-field col s12 m6 l3">
            <select id="diet_name" name="diet_name">
             <option value="" disabled selected>Choose Special Diet</option>
+            <option value>None</option>
             {% for diet in diet %}
             <option value="{{diet.diet_name}}">{{diet.diet_name}}</option>
             {% endfor %}
             </select>
             </div>
             <div class="input-field col s12 m6 l2"> 
-            <input type="text" placeholder="Search.." name="ingredients">
+            <input type="text" placeholder="Search.." name="ingredients" id="ingredients">
             </div>
              <div class="input-field col s12 m6 l1"> 
             <button class="btn btn_small waves-effect waves-light"  type="submit">Filter Records
             </button>
-             <a class="waves-effect waves-light btn btn_small">Reset</a>
             </div>
             </form>
            </div> 
-        
-           
-            
-    
+   
 
 <div class="row">
     <ul class="collapsible" data-collapsible="accordion">
@@ -89,5 +88,7 @@
         {% endfor %}
     </ul>
 </div>
+
+
 
 {% endblock %}
