@@ -5,11 +5,10 @@
     <div class="row">
         <p class="recipe-heading">View Recipe</p>
     </div>
-    
-    
+
     <div class="row">
         <form action="/find_multiple_categories" method="POST">    
-           <div class="input-field col l2"> 
+           <div class="input-field col s12 m6 l3"> 
            <select id="cuisine_name" name="cuisine_name">
             <option value="" disabled selected>Choose Cuisine</option>
             {% for cuisine in cuisine %}
@@ -17,7 +16,7 @@
             {% endfor %}
             </select>
             </div>
-             <div class="input-field col l2">
+             <div class="input-field col s12 m6 l3">
            <select id="course_name" name="course_name">
             <option value="" disabled selected>Choose Course</option>
             {% for course in course %}
@@ -25,7 +24,7 @@
             {% endfor %}
             </select>
             </div>
-            <div class="input-field col l2">
+            <div class="input-field col s12 m6 l3">
            <select id="diet_name" name="diet_name">
             <option value="" disabled selected>Choose Special Diet</option>
             {% for diet in diet %}
@@ -33,16 +32,17 @@
             {% endfor %}
             </select>
             </div>
-            <div class="input-field col l2"> 
+            <div class="input-field col s12 m6 l2"> 
             <input type="text" placeholder="Search.." name="ingredients">
             </div>
-             <div class="input-field col l2"> 
-            <button class="btn waves-effect waves-light"  type="submit">Filter Records
+             <div class="input-field col s12 m6 l1"> 
+            <button class="btn btn_small waves-effect waves-light"  type="submit">Filter Records
             </button>
+             <a class="waves-effect waves-light btn btn_small">Reset</a>
             </div>
             </form>
            </div> 
-           
+        
            
             
     
@@ -83,7 +83,6 @@
                 {{recipe.cuisine_name}}
                 {{recipe.course_name}}
                 {{recipe.diet_name}}
-                {{recipe.ingredients}}
             </span>
             </div>
         </li>

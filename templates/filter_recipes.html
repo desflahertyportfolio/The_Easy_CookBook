@@ -3,9 +3,12 @@
 <main class="container recipe-container margin-top-20">
     
     <div class="row">
-        <p class="recipe-heading">View Recipe</p>
+        <p class="recipe-heading">Filtered Recipes</p>
     </div>
     
+            <a href="{{url_for('recipes')}}" class="waves-effect waves-light btn">Search Again</a>
+ 
+ 
 <div class="row">
     <ul class="collapsible" data-collapsible="accordion">
         {% for recipe in recipe %}
