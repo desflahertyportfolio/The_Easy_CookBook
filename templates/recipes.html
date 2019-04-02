@@ -8,50 +8,31 @@
     
     
     <div class="row">
-        <form action="/find_multiple_categories" method="POST" class="col s12 m3 l3">    
-           <div class="input-field col l12"> 
+        <form action="/find_multiple_categories" method="POST">    
+           <div class="input-field col l3"> 
            <select id="cuisine_name" name="cuisine_name">
             <option value="" disabled selected>Choose Cuisine</option>
             {% for cuisine in cuisine %}
             <option value="{{cuisine.cuisine_name}}">{{cuisine.cuisine_name}}</option>
             {% endfor %}
             </select>
-            <label>Cuisine Type</label>
-            <button class="btn waves-effect waves-light"  type="submit">Filter Cuisine
-            <i class="material-icons right">playlist_add</i>
-            </button>
-             <input type="text" placeholder="Search.." name="ingredients">
-               <select id="course_name" name="course_name">
-            <option value="" disabled selected>Choose Course</option>
-            {% for course in course %}
-            <option value="{{course.course_name}}">{{course.course_name}}</option>
-            {% endfor %}
-            </select>
-            <label>Course Type</label>
             </div>
-            </form>
-            <!--
-           <form action="/filter_recipes_course" method="POST" class="col s12 m3 l3"> 
-            <div class="input-field col l12">
+             <div class="input-field col l3">
            <select id="course_name" name="course_name">
             <option value="" disabled selected>Choose Course</option>
             {% for course in course %}
             <option value="{{course.course_name}}">{{course.course_name}}</option>
             {% endfor %}
             </select>
-            <label>Course Type</label>
-            <button class="btn waves-effect waves-light"   type="submit">Filter Course
-            <i class="material-icons right">playlist_add</i>
+            </div>
+            <div class="input-field col l3"> 
+            <input type="text" placeholder="Search.." name="ingredients">
+            </div>
+             <div class="input-field col l3"> 
+            <button class="btn waves-effect waves-light"  type="submit">Filter Records
             </button>
             </div>
             </form>
-            -->
-            
-          
-                <form class="example" action="{{url_for('find_ingredient')}}" method="POST">
-                <input type="text" placeholder="Search.." name="ingredients">
-                <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
            </div> 
            
            
