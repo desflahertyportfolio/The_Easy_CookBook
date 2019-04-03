@@ -165,6 +165,9 @@ def find_multiple_categories():
        mongo.db.Recipe.create_index([("$**", "text")])
        recipes= mongo.db.Recipe.find({"$text": {"$search": ingredients }})
        
+       
+       
+       
        if course and not cuisine and not ingredients and not diet:
          recipes= mongo.db.Recipe.find({"course_name" :course})
          
@@ -219,9 +222,11 @@ def find_multiple_categories():
                                            
        elif ingredients and cuisine and course and diet:
            recipes = mongo.db.Recipe.find({"$and": [{"cuisine_name": cuisine}, {"course_name": course},{"diet_name" :diet}, {
-                                           "$text": {"$search": ingredients }} ] })                                    
+                                           "$text": {"$search": ingredients }} ] })     
                                            
-       return render_template('filter_recipes.html',recipe=recipes,ingredients=ingredients,cuisine=cuisine,course=course,diet=diet)
+    recipe_count = recipes.count()                                   
+                                           
+    return render_template('filter_recipes.html',recipe=recipes,ingredients=ingredients,cuisine=cuisine,course=course,diet=diet,recipe_count=recipe_count)
 
 
 

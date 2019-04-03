@@ -6,6 +6,36 @@
         <p class="recipe-heading">Filtered Recipes</p>
     </div>
     
+   <!-- counting recipe results --> 
+   
+    <div class="row">
+        <div class="col-xs-12 center">
+                
+            {% if recipe_count != None %}
+                {% if recipe_count == 0 %}
+                <div>
+                    <p class="results-found">No results found!</p>
+                </div>
+    
+                {% elif recipe_count == 1 %}
+                <div>
+                    <p class="results-found">{{ recipe_count}} result found!</p>
+                </div>
+                {% else %}
+                <div>
+                    <p class="results-found">{{ recipe_count}} results found!</p>
+                </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
             <a href="{{url_for('recipes')}}" class="waves-effect waves-light btn">Search Again</a>
  
  
