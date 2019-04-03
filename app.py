@@ -36,9 +36,19 @@ def cuisine():
     return render_template("cuisine.html", cuisine=mongo.db.Cuisine.find())    
  
     
+
+
 @app.route('/recipes')
 def recipes():
     return render_template("recipes.html",recipe=mongo.db.Recipe.find(),cuisine=mongo.db.Cuisine.find(),course=mongo.db.Course.find(),diet=mongo.db.Special_Diets.find()) 
+    
+
+@app.route('/recipes_sort')
+def recipes_sort():
+    return render_template("recipes.html", cuisine=mongo.db.Cuisine.find(),course=mongo.db.Course.find(),diet=mongo.db.Special_Diets.find(),
+    recipe=mongo.db.Recipe.find().sort("recipe_likes",-1).limit(10)) 
+    
+    
                             
   
 @app.route('/single_recipes/<recipe_id>')
@@ -102,7 +112,8 @@ def update_recipe(recipe_id):
         'instruction_step_5':request.form.get('instruction_step_5'),
         'instruction_step_6':request.form.get('instruction_step_6'),
         'image':request.form.get('image'),
-        'author':request.form.get('author')
+        'author':request.form.get('author'),
+        'likes':request.form.get('recipe_likes')
     })
     return redirect(url_for('recipes'))  
     

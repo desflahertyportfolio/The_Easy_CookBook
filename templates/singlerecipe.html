@@ -2,25 +2,7 @@
 
 <main class="container recipe-container margin-top-20">
  
-<div class="row">
-        <form action="/filter_recipes" method="POST"  class="col s12">    
-        <div class="row">
-           <div class="input-field col s4"> 
-           <select id="cuisine_name" name="cuisine_name">
-            <option value="" disabled selected>Choose Cuisine</option>
-            {% for cuisine in cuisine %}
-            <option value="{{cuisine.cuisine_name}}">{{cuisine.cuisine_name}}</option>
-            {% endfor %}
-            </select>
-             <label>Cuisine Type</label>
-            </div>
-             </div>
-             <div class="row">
-            <button class="btn waves-effect waves-light" type="submit">Filter
-            <i class="material-icons right">playlist_add</i>
-            </button>
-            </div>
-        </form>
+
         
 <div class="row margin-bottom-10">    
     
@@ -55,7 +37,7 @@
                             </div>
         </div>
         
-         
+
     
     <div class="row margin-bottom-10 recipe_image_container">
                     <div class="col-xs-12 single-recipe-instructions">
