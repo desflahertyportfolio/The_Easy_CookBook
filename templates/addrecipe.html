@@ -169,11 +169,16 @@
             </div>
             
              <div class="row">
-                <div class="input-field col s12">
-                    <textarea id="author" name="author" type="textarea" class="materialize-textarea"></textarea>
-                    <label>Created By</label>
-                </div>
+           <div class="input-field col s12"> 
+           <select id="name" name="name">
+            <option value="" disabled selected>Registered Name</option>
+            {% for name in name %}
+            <option value="{{name.name}}">{{name.name}}</option>
+            {% endfor %}
+            </select>
+             <label>Choose Author</label>
             </div>
+             </div>
             
            
             

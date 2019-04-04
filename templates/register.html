@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% block content %}
+
+<main class="container recipe-container margin-top-20">
+    
+    <div class="row">
+        <p class="recipe-heading">Registration</p>
+    </div>
+     
+    <div class="row">
+        <form action="{{url_for('insert_user') }}" method="POST"  class="col s12">
+           
+             <div class="row">
+             <div class="input-field col s12">
+                <input id="name" name="name" type="text" class="validate" required>
+                <label>Full Name</label>
+            </div>
+             </div>
+             
+             <div class="row">
+             <div class="input-field col s12">
+            <input id="username" name="username" type="text" class="validate" required>
+            <label>Username</label>
+            </div>
+             </div>
+             
+             <div class="row">
+             <div class="input-field col s12">
+            <input id="password" name="password" type="password" class="validate" required>
+            <label>Password</label>
+            </div>
+            </div>
+            
+            <div class="row">
+             <div class="input-field col s12">
+            <input id="email" name="email" type="email" class="validate" required>
+            <label>Email</label>
+            </div>
+            </div>
+             
+             
+           
+           <div class="row">
+                <button class="btn waves-effect waves-light" type="submit">Register
+                <i class="material-icons right">playlist_add</i>
+            </button>
+            </div>
+        </form>
+
+   
+
+</main>
+{% endblock %}
