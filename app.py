@@ -35,6 +35,9 @@ def index():
     return render_template("index.html")
 
 
+# START OF CODE CREDIT TO 'MIROSLAV SVEC'
+# CONTACTED VIA SLACK FOR ASSISTANCE
+# CREATING A SESSION FOR USER REGISTRATION & LOGIN
 
 #Login
 
@@ -153,7 +156,7 @@ def profile(user):
      #   flash('You must be logged in')
       #  return redirect(url_for('index'))                    
                     
-
+# END OF CODE CREDIT TO 'MIROSLAV SVEC'
    
 @app.route('/cuisine')
 def cuisine():
@@ -206,16 +209,34 @@ def logout():
 
 """
 
+@app.route('/my_recipes/<username>')
+def my_recipes(username):
+   
+    if session['user'] == username:
+        user = mongo.db.User_Details.find_one({"username": username})
+        user_recipes = mongo.db.Recipe.find({"username": session['user']})
+        recipe_count = user_recipes.count()
+
+        return render_template(
+            'myrecipes.html',
+            user=user,
+            user_recipes=user_recipes,
+            recipe_count=recipe_count)
+
+    else:
+        
+       
+        return redirect(url_for('index'))
+
 
 @app.route('/add_recipes')
 def add_recipes():
-    return render_template('addrecipe.html',
-    cuisine=mongo.db.Cuisine.find(),
-    course=mongo.db.Course.find(),
-    occasion=mongo.db.Occasion.find(),
-    diet=mongo.db.Special_Diets.find(),
-    skill=mongo.db.Skill.find(),
-    name=mongo.db.User_Details.find()
+      return render_template('addrecipe.html',
+      cuisine=mongo.db.Cuisine.find(),
+      course=mongo.db.Course.find(),
+      occasion=mongo.db.Occasion.find(),
+      diet=mongo.db.Special_Diets.find(),
+      skill=mongo.db.Skill.find()
     )
    
     

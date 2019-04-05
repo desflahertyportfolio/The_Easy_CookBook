@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'profile.html' %} {% block content %}
 
 <main class="container recipe-container margin-top-20">
     
@@ -168,17 +168,15 @@
                 </div>
             </div>
             
-             <div class="row">
-           <div class="input-field col s12"> 
-           <select id="name" name="author">
-            <option value="" disabled selected>Registered Name</option>
-            {% for name in name %}
-            <option value="{{name.name}}">{{name.name}}</option>
-            {% endfor %}
-            </select>
-             <label>Choose Author</label>
+            <!--
+                 <div class="row">
+                <div class="input-field col s12">
+                    <input id="username" name="username" type="text" class="materialize-textarea" required>
+                {{ user.username }}
+                   
+                </div>
             </div>
-             </div>
+            -->
             
            
             

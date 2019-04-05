@@ -3,7 +3,27 @@
 <main class="container recipe-container margin-top-20">
     
     <div class="row">
-        <p class="recipe-heading">View Recipe</p>
+        <p class="recipe-heading">My Recipe</p>
+    </div>
+    
+    <p class="my-recipe-heading">Hello {{ user.username }}</p>
+    
+<!--THE COUNT AS TO HOW MANY RECIPES A USER HAS ADDED--> 
+<div class="row found_recipe_row">
+    <div class="col-xs-12 center margin-bottom-20">
+    {% if recipe_count == 0 %}
+        <p class="recipe-count"><b>You haven't added any recipes yet. To get started click the add recipes button.</b></p>
+        <p class="signin-btn center"><a href="{{url_for('add_recipes')}}">Add Recipe</a></p>
+    
+    {% elif recipe_count == 1 %}
+        <p class="recipe-count"><b>You have created {{ recipe_count }} recipe.</b></p>
+        <p class="signin-btn center"><a href="{{url_for('add_recipes')}}">Add Recipe</a></p>
+    
+    {% else %}
+    
+        <p class="recipe-count"><b>You have created {{ recipe_count }} recipes.</b></p>
+        <p class="signin-btn center"><a href="{{url_for('add_recipes')}}">Add Recipe</a></p>
+    {% endif %}
     </div>
     
   
