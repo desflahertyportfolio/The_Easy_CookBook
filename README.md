@@ -1,7 +1,9 @@
 In this project, you’ll be building a data-driven web application using the technologies that you have learned throughout Data Centric Development. You can either choose to to follow the example brief below, or you can use your own idea for the website.
 
 CREATE AN ONLINE COOKBOOK:
+
 Create a web application that allows users to store and easily access cooking recipes
+
 Put some effort into designing a database schema based on recipes, and any other related properties and entities
 (e.g. views, upvotes, ingredients, recipe authors, allergens, author’s country of origin, cuisine etc…).
 Make sure to put some thought into the relationships between them, and use either foreign keys
