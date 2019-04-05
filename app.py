@@ -211,7 +211,6 @@ def logout():
 
 @app.route('/my_recipes/<username>')
 def my_recipes(username):
-   
     if session['user'] == username:
         user = mongo.db.User_Details.find_one({"username": username})
         user_recipes = mongo.db.Recipe.find({"username": session['user']})
@@ -224,19 +223,20 @@ def my_recipes(username):
             recipe_count=recipe_count)
 
     else:
-        
-       
         return redirect(url_for('index'))
 
 
-@app.route('/add_recipes')
-def add_recipes():
-      return render_template('addrecipe.html',
-      cuisine=mongo.db.Cuisine.find(),
-      course=mongo.db.Course.find(),
-      occasion=mongo.db.Occasion.find(),
-      diet=mongo.db.Special_Diets.find(),
-      skill=mongo.db.Skill.find()
+@app.route('/add_recipes/<username>')
+def add_recipes(username):
+     if session['user'] == username:
+         user = mongo.db.User_Details.find_one({"username": username})
+         return render_template('addrecipe.html',
+         user=user,
+         cuisine=mongo.db.Cuisine.find(),
+         course=mongo.db.Course.find(),
+         occasion=mongo.db.Occasion.find(),
+         diet=mongo.db.Special_Diets.find(),
+         skill=mongo.db.Skill.find()
     )
    
     
