@@ -131,17 +131,7 @@ def logout():
     flash('You were logged out!')
     return redirect(url_for('index'))
 
-# Profile Page
-@app.route('/profile/<user>')
-def profile(user): 
-    # Check if user is logged in
-    if 'user' in session:
-        # If so get the user and pass him to template for now
-        user_in_db = users_collection.find_one({"username": user})
-        return render_template('profile.html', user=user_in_db)
-    else:
-        flash("You must be logged in!")
-        return redirect(url_for('index'))
+
 
 # Admin area
 #@app.route('/admin')
@@ -208,7 +198,18 @@ def logout():
      return render_template('base.html')  
 
 """
+@app.route('/profile/<user>')
+def profile(user): 
+    # Check if user is logged in
+    if 'user' in session:
+        # If so get the user and pass him to template for now
+        user_in_db = users_collection.find_one({"username": user})
+        return render_template('profile.html', user=user_in_db)
+    else:
+        flash("You must be logged in!")
+        return redirect(url_for('index'))
 
+"""
 @app.route('/my_recipes/<username>')
 def my_recipes(username):
     if session['user'] == username:
@@ -224,21 +225,20 @@ def my_recipes(username):
 
     else:
         return redirect(url_for('index'))
+"""
 
 
-@app.route('/add_recipes/<username>')
-def add_recipes(username):
-     if session['user'] == username:
-         user = mongo.db.User_Details.find_one({"username": username})
+@app.route('/add_recipes')
+def add_recipes():
          return render_template('addrecipe.html',
-         user=user,
          cuisine=mongo.db.Cuisine.find(),
          course=mongo.db.Course.find(),
          occasion=mongo.db.Occasion.find(),
          diet=mongo.db.Special_Diets.find(),
-         skill=mongo.db.Skill.find()
-    )
-   
+         skill=mongo.db.Skill.find())
+ 
+
+
     
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():

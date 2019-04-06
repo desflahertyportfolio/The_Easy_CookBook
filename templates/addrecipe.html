@@ -1,4 +1,4 @@
-{% extends 'profile.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <main class="container recipe-container margin-top-20">
     
@@ -163,7 +163,7 @@
             
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="image" name="image" type="textarea" class="materialize-textarea"></textarea>
+                    <input id="image" name="image" type="text" class="validate"></textarea>
                     <label>Image</label>
                 </div>
             </div>
@@ -171,8 +171,8 @@
             
                  <div class="row">
                 <div class="input-field col s12">
-                    <input id="username" name="username" type="text" class="materialize-textarea" >
-                    <label>{{ user.username }}</label>
+                    <input id="author" name="author" type="text"  class="validate" >
+                    <label>Author</label>
                      
                    
                 </div>

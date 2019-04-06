@@ -31,18 +31,24 @@
                    
                     <li><a href="{{url_for('index')}}">Home</a></li>
                     <li><a href="{{url_for('recipes')}}">Recipes</a></li>
-                      
+                    {% if 'user' not in session %}
                     <li><a href="{{url_for('add_user')}}">Register</a></li>
                     <li><a href="{{url_for('login')}}">Login</a></li>
-                   
-                  
-                    
+                   {% else %}
+                      <li><a href="{{url_for('add_recipes', username = session['user'])}}">Add Recipes</a></li>
+                    <li><a href="{{url_for('logout')}}">Logout</a></li>
+                   {% endif %}
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="{{url_for('index')}}">Home</a></li>
                     <li><a href="{{url_for('recipes')}}">Recipes</a></li>
+                    {% if 'user' not in session %}
                     <li><a href="{{url_for('add_user')}}">Register</a></li>
                     <li><a href="{{url_for('login')}}">Login</a></li>
+                     {% else %}
+                      <li><a href="{{url_for('add_recipes', username = session['user'])}}">Add Recipes</a></li>
+                    <li><a href="{{url_for('logout')}}">Logout</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
