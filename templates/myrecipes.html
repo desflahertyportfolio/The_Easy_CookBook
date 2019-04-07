@@ -68,17 +68,11 @@
             
             
             
-            <div class="row">
-            <div class="ordered-by-title">
-            <a href="{{url_for('recipes')}}" class="see-all">View All</a>
-            <br>
-            <a href="{{url_for('recipes_sort')}}" class="see-top-10">Sort Top 10 by Likes</a> 
-            </div>
-            </div>
+           
 
 <div class="row">
     <ul class="collapsible" data-collapsible="accordion">
-        {% for recipe in recipe %}
+        {% for user_recipes in user_recipes %}
         <li>
             
             <div class="collapsible-header">
@@ -87,21 +81,10 @@
                     </div>
                     
                      <div class="recipe_header col s9">
-                    <strong>{{recipe.recipe_name}}</strong> 
+                    <strong>{{user_recipes.recipe_name}}</strong> 
                 </div>
                     
-                    <div class ="col s4">
-                    <div class ="inline">
-                    <form action="{{url_for('delete_recipe', recipe_id=recipe._id)}}" method="POST">
-                        
-                       <!-- If session['user'] == recipe.author: (allow them to edit)-->
-                        
-                     <a href="{{url_for('single_recipes', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn_small teal lighten-1">View</a>
-                    <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn_small teal lighten-1">Edit Recipe</a>
-                    <button type="submit"  class="waves-effect waves-light  red lighten-1 btn btn_small">Delete</button>
-                   </form>
-                </div>
-                </div>
+                    
             
             
                
@@ -109,10 +92,6 @@
             
             <div class="collapsible-body">
                 <span>
-                {{recipe.recipe_description}} 
-                {{recipe.cuisine_name}}
-                {{recipe.course_name}}
-                {{recipe.diet_name}}
                
                
             </span>

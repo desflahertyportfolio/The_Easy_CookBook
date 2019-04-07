@@ -209,7 +209,7 @@ def profile(user):
         flash("You must be logged in!")
         return redirect(url_for('index'))
 
-"""
+
 @app.route('/my_recipes/<username>')
 def my_recipes(username):
     if session['user'] == username:
@@ -221,30 +221,36 @@ def my_recipes(username):
             'myrecipes.html',
             user=user,
             user_recipes=user_recipes,
-            recipe_count=recipe_count)
+            recipe_count=recipe_count,cuisine=mongo.db.Cuisine.find(),course=mongo.db.Course.find(),diet=mongo.db.Special_Diets.find())
 
     else:
         return redirect(url_for('index'))
-"""
 
 
-@app.route('/add_recipes')
-def add_recipes():
-         return render_template('addrecipe.html',
-         cuisine=mongo.db.Cuisine.find(),
-         course=mongo.db.Course.find(),
+@app.route('/add_recipes/<username>')
+def add_recipes(username):
+     if session['user'] == username:
+        # If so get the user and pass him to template for now
+        user_in_db = users_collection.find_one({"username": username})
+        return render_template('addrecipe.html',
+        cuisine=mongo.db.Cuisine.find(),
+        course=mongo.db.Course.find(),
          occasion=mongo.db.Occasion.find(),
          diet=mongo.db.Special_Diets.find(),
-         skill=mongo.db.Skill.find())
+         skill=mongo.db.Skill.find(),user=user_in_db)
  
 
 
     
-@app.route('/insert_recipe', methods=['POST'])
-def insert_recipe():
-    recipe =  mongo.db.Recipe
-    recipe.insert_one(request.form.to_dict())
-    return redirect(url_for('recipes'))
+@app.route('/insert_recipe/<username>',methods=['GET', 'POST'])
+def insert_recipe(username):
+    if request.method == "POST":
+       recipe =  mongo.db.Recipe
+       recipe.insert_one(request.form.to_dict())
+       user = mongo.db.User_Details.find_one({"username": username})
+       if session['user'] == username:
+          user = mongo.db.User_Details.find_one({"username": username})
+    return redirect(url_for('recipes',user=user))
     
   
   

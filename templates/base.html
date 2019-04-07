@@ -36,6 +36,7 @@
                     <li><a href="{{url_for('login')}}">Login</a></li>
                    {% else %}
                       <li><a href="{{url_for('add_recipes', username = session['user'])}}">Add Recipes</a></li>
+                       <li><a href="{{url_for('my_recipes', username = session['user'])}}">My Recipes</a></li>
                     <li><a href="{{url_for('logout')}}">Logout</a></li>
                    {% endif %}
                 </ul>
@@ -47,6 +48,7 @@
                     <li><a href="{{url_for('login')}}">Login</a></li>
                      {% else %}
                       <li><a href="{{url_for('add_recipes', username = session['user'])}}">Add Recipes</a></li>
+                       <li><a href="{{url_for('my_recipes', username = session['user'])}}">My Recipes</a></li>
                     <li><a href="{{url_for('logout')}}">Logout</a></li>
                     {% endif %}
                 </ul>
