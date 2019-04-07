@@ -27,47 +27,7 @@
     </div>
     
   
-    <div class="row">
-        <form action="/find_multiple_categories" method="POST">    
-           <div class="input-field col s12 m6 l3"> 
-           <select id="cuisine_name" name="cuisine_name">
-            <option value="" disabled selected>Choose Cuisine</option>
-            <option value>None</option>
-            {% for cuisine in cuisine %}
-            <option value="{{cuisine.cuisine_name}}">{{cuisine.cuisine_name}}</option>
-            {% endfor %}
-            </select>
-            </div>
-             <div class="input-field col s12 m6 l3">
-           <select id="course_name" name="course_name">
-            <option value="" disabled selected>Choose Course</option>
-            <option value>None</option>
-            {% for course in course %}
-            <option value="{{course.course_name}}">{{course.course_name}}</option>
-            {% endfor %}
-            </select>
-            </div>
-            <div class="input-field col s12 m6 l3">
-           <select id="diet_name" name="diet_name">
-            <option value="" disabled selected>Choose Special Diet</option>
-            <option value>None</option>
-            {% for diet in diet %}
-            <option value="{{diet.diet_name}}">{{diet.diet_name}}</option>
-            {% endfor %}
-            </select>
-            </div>
-            <div class="input-field col s12 m6 l2"> 
-            <input type="text" placeholder="Search Ingredients:" name="ingredients" id="ingredients">
-            </div>
-             <div class="input-field col s12 m6 l1"> 
-            <button class="btn btn_small waves-effect waves-light"  type="submit">Filter Records
-            </button>
-            </div>
-            </form>
-           </div> 
-            
-            
-            
+   
            
 
 <div class="row">
@@ -92,9 +52,13 @@
             
             <div class="collapsible-body">
                 <span>
-               
+                {{user_recipes.recipe_description}} 
+                {{user_recipes.cuisine_name}}
+                {{user_recipes.course_name}}
+                {{user_recipes.diet_name}}
                
             </span>
+            <a href="{{url_for('mysingle_recipes', user_recipes_id=user_recipes._id)}}" class="waves-effect waves-light btn btn_small teal lighten-1">View</a>
             </div>
         </li>
         {% endfor %}

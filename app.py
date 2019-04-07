@@ -93,14 +93,14 @@ def register():
             # If so try to find the user in db
            user = users_collection.find_one({"username" : form['username']})
         if user:
-          flash("{form['username']} already exists!")
+         # flash("{form['username']} already exists!")
           return redirect(url_for('register'))
             # If user does not exist register new user
         else:                
                 # Hash password
-                hash_pass = generate_password_hash(form['password'])
+           hash_pass = generate_password_hash(form['password'])
                 #Create new user with hashed password
-                users_collection.insert_one(
+        users_collection.insert_one(
                     {
                         'username': form['username'],
                         'email': form['email'],
@@ -108,18 +108,18 @@ def register():
                     }
                 )
                 # Check if user is actualy saved
-                user_in_db = users_collection.find_one({"username": form['username']})
-                if user_in_db:
+        user_in_db = users_collection.find_one({"username": form['username']})
+        if user_in_db:
                     # Log user in (add to session)
-                    session['user'] = user_in_db['username']
-                    return redirect(url_for('profile', user=user_in_db['username']))
-                else:
-                    flash("There was a problem saving your profile")
-                    return redirect(url_for('register'))
+            session['user'] = user_in_db['username']
+            return redirect(url_for('profile', user=user_in_db['username']))
+        else:
+                flash("There was a problem saving your profile")
+                return redirect(url_for('register'))
     else:
        flash("Passwords dont match!")
        return redirect(url_for('register'))
-  
+       
        return render_template("register.html")
                     
                     
@@ -174,7 +174,12 @@ def single_recipes(recipe_id):
     return render_template("singlerecipe.html",
                             recipe=the_recipe)  
                             
- 
+
+@app.route('/mysingle_recipes/<user_recipes_id>')
+def mysingle_recipes(user_recipes_id):
+    the_recipe =  mongo.db.Recipe.find_one({"_id": ObjectId(user_recipes_id)})
+    return render_template("mysinglerecipe.html",
+                            user_recipes=the_recipe) 
 
 """
 @app.route('/insert_user', methods=['POST'])
@@ -250,7 +255,7 @@ def insert_recipe(username):
        user = mongo.db.User_Details.find_one({"username": username})
        if session['user'] == username:
           user = mongo.db.User_Details.find_one({"username": username})
-    return redirect(url_for('recipes',user=user))
+    return redirect(url_for('my_recipes',user=user,username=username))
     
   
   
