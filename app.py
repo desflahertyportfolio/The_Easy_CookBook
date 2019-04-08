@@ -264,7 +264,7 @@ def insert_recipe(username):
     
   
   
-
+"""
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     the_recipe =  mongo.db.Recipe.find_one({"_id": ObjectId(recipe_id)})
@@ -276,10 +276,61 @@ def edit_recipe(recipe_id):
     return render_template('editrecipe.html', recipe=the_recipe,
                            cuisine=all_cuisines,course=all_courses,
                            occasion=all_occasions,diet=all_diets,skill=all_skills)
+"""
+
+@app.route('/edit_recipe/<user_recipes_id>/<username>')
+def edit_recipe(user_recipes_id,username):
+    if session['user'] == username:
+        # If so get the user and pass him to template for now
+        user_in_db = users_collection.find_one({"username": username})
+    the_recipe =  mongo.db.Recipe.find_one({"_id": ObjectId(user_recipes_id)})
+    all_cuisines =  mongo.db.Cuisine.find()
+    all_courses =  mongo.db.Course.find()
+    all_occasions =  mongo.db.Occasion.find()
+    all_diets =  mongo.db.Special_Diets.find()
+    all_skills =  mongo.db.Skill.find()
+    return render_template('editmyrecipe.html', user_recipes=the_recipe,
+                           cuisine=all_cuisines,course=all_courses,
+                           occasion=all_occasions,diet=all_diets,skill=all_skills,user=user_in_db,username=username)
 
 
 
 
+
+@app.route('/update_recipe/<user_recipes_id>/<username>', methods=['POST'] )
+def update_recipe(user_recipes_id,username):
+     if session['user'] == username:
+      user = mongo.db.User_Details.find_one({"username": username}) 
+      user_recipe = mongo.db.Recipe
+     user_recipe.update( {'_id': ObjectId(user_recipes_id)},
+    {
+        'recipe_name':request.form.get('recipe_name'),
+        'recipe_description':request.form.get('recipe_description'),
+        'cuisine_name':request.form.get('cuisine_name'),
+        'course_name':request.form.get('course_name'),
+        'occasion_name':request.form.get('occasion_name'),
+        'diet_name':request.form.get('diet_name'),
+        'skill_name':request.form.get('skill_name'),
+        'ingredients':request.form.get('ingredients'),
+        'cook_time':request.form.get('cook_time'),
+        'prep_time':request.form.get('prep_time'),
+        'serves':request.form.get('serves'),
+        'instruction_step_1':request.form.get('instruction_step_1'),
+        'instruction_step_2':request.form.get('instruction_step_2'),
+        'instruction_step_3':request.form.get('instruction_step_3'),
+        'instruction_step_4':request.form.get('instruction_step_4'),
+        'instruction_step_5':request.form.get('instruction_step_5'),
+        'instruction_step_6':request.form.get('instruction_step_6'),
+        'image':request.form.get('image'),
+        'username': request.form.get('username'),
+        'likes':request.form.get('recipe_likes')
+    })
+     return redirect(url_for('my_recipes',user_recipes=user_recipe,user=user,username=username))  
+
+
+
+
+"""
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
     recipe = mongo.db.Recipe
@@ -307,7 +358,7 @@ def update_recipe(recipe_id):
         'likes':request.form.get('recipe_likes')
     })
     return redirect(url_for('recipes'))  
-    
+"""    
 
     
 """
@@ -316,6 +367,8 @@ def delete_recipe(recipe_id):
     mongo.db.Recipe.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('recipes'))    
 """
+
+
 @app.route('/delete_recipe/<user_recipes_id>/<username>', methods=["POST"])
 def delete_recipe(user_recipes_id,username):
     if session['user'] == username:
@@ -323,10 +376,6 @@ def delete_recipe(user_recipes_id,username):
       user_the_recipe =  mongo.db.Recipe.remove({"_id": ObjectId(user_recipes_id)})
     return redirect(url_for('my_recipes',user_recipes=user_the_recipe,user=user,username=username)) 
     
-
-
-
-                            
                              
 
  
