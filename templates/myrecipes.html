@@ -58,8 +58,11 @@
                 {{user_recipes.diet_name}}
                
             </span>
+             <form action="{{url_for('delete_recipe', user_recipes_id=user_recipes._id,username = session['user'])}}" method="POST">
             <a href="{{url_for('mysingle_recipes', user_recipes_id=user_recipes._id)}}" class="waves-effect waves-light btn btn_small teal lighten-1">View</a>
-           
+             <button type="submit"  class="waves-effect waves-light  red lighten-1 btn btn_small">Delete</button>
+             </form>
+            
             </div>
         </li>
         {% endfor %}

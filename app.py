@@ -11,6 +11,7 @@ app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] ='CookBook'
 app.config["MONGO_URI"] ='mongodb+srv://root:Allergan99@myfirstcluster-lgqe5.mongodb.net/CookBook'
+
 #app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 app.config['SECRET_KEY']="\xd4\xf3}gi\xa8fK\x87`\xbc\xea\xc5R\x81\xc1Ho\xba'\x85\xd5$\xf4"
 
@@ -28,6 +29,7 @@ else:
 mongo = PyMongo(app)
 
 users_collection = mongo.db.User_Details
+recipes_collection = mongo.db.Recipe
 
 @app.route('/')
 @app.route('/index')
@@ -38,6 +40,8 @@ def index():
 # START OF CODE CREDIT TO 'MIROSLAV SVEC'
 # CONTACTED VIA SLACK FOR ASSISTANCE
 # CREATING A SESSION FOR USER REGISTRATION & LOGIN
+
+
 
 #Login
 
@@ -93,7 +97,7 @@ def register():
             # If so try to find the user in db
            user = users_collection.find_one({"username" : form['username']})
         if user:
-         # flash("{form['username']} already exists!")
+          flash("{form['username']} already exists!")
           return redirect(url_for('register'))
             # If user does not exist register new user
         else:                
@@ -120,7 +124,7 @@ def register():
        flash("Passwords dont match!")
        return redirect(url_for('register'))
        
-       return render_template("register.html")
+      #  return render_template("register.html")
                     
                     
 # Log out
@@ -225,6 +229,7 @@ def my_recipes(username):
         return render_template(
             'myrecipes.html',
             user=user,
+            username=username,
             user_recipes=user_recipes,
             recipe_count=recipe_count,cuisine=mongo.db.Cuisine.find(),course=mongo.db.Course.find(),diet=mongo.db.Special_Diets.find())
 
@@ -242,7 +247,7 @@ def add_recipes(username):
         course=mongo.db.Course.find(),
          occasion=mongo.db.Occasion.find(),
          diet=mongo.db.Special_Diets.find(),
-         skill=mongo.db.Skill.find(),user=user_in_db)
+         skill=mongo.db.Skill.find(),user=user_in_db,username=username)
  
 
 
@@ -259,7 +264,7 @@ def insert_recipe(username):
     
   
   
-  
+
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     the_recipe =  mongo.db.Recipe.find_one({"_id": ObjectId(recipe_id)})
@@ -272,21 +277,9 @@ def edit_recipe(recipe_id):
                            cuisine=all_cuisines,course=all_courses,
                            occasion=all_occasions,diet=all_diets,skill=all_skills)
 
-"""
-@app.route('/editmy_recipe/<user_recipes_id>')
-def editmy_recipe(user_recipes_id):
-    the_recipe =  mongo.db.Recipe.find_one({"_id": ObjectId(user_recipes_id)})
-    all_cuisines =  mongo.db.Cuisine.find()
-    all_courses =  mongo.db.Course.find()
-    all_occasions =  mongo.db.Occasion.find()
-    all_diets =  mongo.db.Special_Diets.find()
-    all_skills =  mongo.db.Skill.find()
-    return render_template('editmyrecipe.html', user_recipes=the_recipe,
-                           cuisine=all_cuisines,course=all_courses,
-                           occasion=all_occasions,diet=all_diets,skill=all_skills)
-                           
-"""
-                           
+
+
+
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
     recipe = mongo.db.Recipe
@@ -315,16 +308,24 @@ def update_recipe(recipe_id):
     })
     return redirect(url_for('recipes'))  
     
-    
 
     
-
+"""
 @app.route('/delete_recipe/<recipe_id>', methods=["POST"])
 def delete_recipe(recipe_id):
     mongo.db.Recipe.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('recipes'))    
- 
- 
+"""
+@app.route('/delete_recipe/<user_recipes_id>/<username>', methods=["POST"])
+def delete_recipe(user_recipes_id,username):
+    if session['user'] == username:
+      user = mongo.db.User_Details.find_one({"username": username})    
+      user_the_recipe =  mongo.db.Recipe.remove({"_id": ObjectId(user_recipes_id)})
+    return redirect(url_for('my_recipes',user_recipes=user_the_recipe,user=user,username=username)) 
+    
+
+
+
                             
                              
 
@@ -405,6 +406,7 @@ def find_multiple_categories():
     recipe_count = recipes.count()                                   
                                            
     return render_template('filter_recipes.html',recipe=recipes,ingredients=ingredients,cuisine=cuisine,course=course,diet=diet,recipe_count=recipe_count)
+
 
 
 

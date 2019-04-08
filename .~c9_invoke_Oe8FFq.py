@@ -272,7 +272,7 @@ def edit_recipe(recipe_id):
                            cuisine=all_cuisines,course=all_courses,
                            occasion=all_occasions,diet=all_diets,skill=all_skills)
 
-"""
+
 @app.route('/editmy_recipe/<user_recipes_id>')
 def editmy_recipe(user_recipes_id):
     the_recipe =  mongo.db.Recipe.find_one({"_id": ObjectId(user_recipes_id)})
@@ -285,7 +285,7 @@ def editmy_recipe(user_recipes_id):
                            cuisine=all_cuisines,course=all_courses,
                            occasion=all_occasions,diet=all_diets,skill=all_skills)
                            
-"""
+
                            
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
