@@ -34,7 +34,7 @@ recipes_collection = mongo.db.Recipe
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template("index.html")
+       return render_template("index.html")
 
 
 # START OF CODE CREDIT TO 'MIROSLAV SVEC'
