@@ -70,7 +70,7 @@
                     <strong>{{recipe.recipe_name}}</strong> 
                 </div>
                     
-                     <a href="{{url_for('single_recipes', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn_small teal lighten-1">View</a>
+                     
             
             
                
@@ -82,7 +82,7 @@
                 {{recipe.cuisine_name}}
                 {{recipe.course_name}}
                 {{recipe.diet_name}}
-               
+               <a href="{{url_for('single_recipes', recipe_id=recipe._id)}}" class="waves-effect waves-light btn btn_small teal lighten-1">View</a>
             </span>
         
                         

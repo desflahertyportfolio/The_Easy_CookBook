@@ -94,12 +94,14 @@ padding-right: 20px;
     margin-right: -5px;
 }
 
-
-.single-recipe_image {
+.img{
     height: auto;
-    width: 100%;
+    width: 90%;
     border-radius: 10px;
+    margin-right:15px;
 }
+
+
 
 .search-category-heading {
     padding: 5px 5px;

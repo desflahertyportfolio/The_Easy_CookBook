@@ -25,11 +25,11 @@
         
       <nav class="teal lighten-1">
             <div class="nav-wrapper">
-                <a href="{{url_for('index',username = session['user'])}}" class="brand-logo">The Easy CookBook</a>
+                <a href="{{url_for('index')}}" class="brand-logo">The Easy CookBook</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                    
-                    <li><a href="{{url_for('index', username = session['user'])}}">Home</a></li>
+                    <li><a href="{{url_for('index')}}">Home</a></li>
                     <li><a href="{{url_for('recipes')}}">Recipes</a></li>
                     {% if 'user' not in session %}
                     <li><a href="{{url_for('add_user')}}">Register</a></li>
@@ -41,7 +41,7 @@
                    {% endif %}
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                    <li><a href="{{url_for('index', username = session['user'])}}">Home</a></li>
+                    <li><a href="{{url_for('index')}}">Home</a></li>
                     <li><a href="{{url_for('recipes')}}">Recipes</a></li>
                     {% if 'user' not in session %}
                     <li><a href="{{url_for('add_user')}}">Register</a></li>
