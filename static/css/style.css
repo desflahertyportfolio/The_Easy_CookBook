@@ -14,9 +14,10 @@ body {
     padding: 0;
     font-family: 'Abel', serif;
     font-size: 16.5px;
-     background-image: url(../images/base_01.jpg);
+    background-image: url(../images/base_01.jpg);
     background-size: cover;
     background-attachment: fixed;
+    text-align: center;
 }
 
 /************CONTROL BRAND LOGO TEXT SIZE ON MOBILE **************************************/
@@ -30,7 +31,9 @@ body {
 /************STYLING HOMEPAGE *****************************************************/
 
 nav .brand-logo {
-    padding-left: 20px
+    padding-left: 20px;
+    float:left;
+    position:static;
 }
 
 nav ul a 
@@ -53,13 +56,11 @@ padding-right: 20px;
 }
 
 
-.recipe-container {
-    background-color: rgba(255, 255, 255, .8);
-    padding: 20px;
-    margin-top: 20px;
-    margin-bottom: 50px;
-    border-radius: 10px;
-}
+
+
+
+
+
 
 .recipe-heading {
     color: #000;
@@ -85,6 +86,35 @@ padding-right: 20px;
 
 
 /**************************SINGLE PAGE RECIPE ******************************************************/
+
+@media only screen and (min-width: 993px) {
+.container {
+width:85%;
+}
+}
+
+
+.search-container {
+width:70%;
+display: inline-block;
+}
+
+
+
+.search-text {
+ font-size:18px;
+ text-align:center;
+ font-weight: bold;
+}
+
+.recipe-container {
+    background-color: rgba(255, 255, 255, .8);
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+
 .single-recipe-head {
     padding: 15px 40px;
 }
@@ -96,17 +126,32 @@ padding-right: 20px;
 
 .img{
     height: auto;
-    width: 90%;
+    width: 50%;
     border-radius: 10px;
     margin-right:15px;
+    float:left;
 }
 
-
+.single-recipe-ingredients {
+    background-color: rgba(255, 255, 255, .7);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
 
 .search-category-heading {
     padding: 5px 5px;
     border-bottom: 1px solid #000;
     margin-bottom: 15px;
+}
+
+.flex1 {
+    flex: 1;
+}
+
+.flex-box {
+    display: flex;
 }
 
 .search-ingredient {

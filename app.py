@@ -176,7 +176,7 @@ def recipes_sort():
 def single_recipes(recipe_id):
     the_recipe =  mongo.db.Recipe.find_one({"_id": ObjectId(recipe_id)})
     return render_template("singlerecipe.html",
-                            recipe=the_recipe)  
+                            recipe=the_recipe,cuisine=mongo.db.Cuisine.find(),course=mongo.db.Course.find(),diet=mongo.db.Special_Diets.find())  
                             
 
 @app.route('/mysingle_recipes/<user_recipes_id>')
