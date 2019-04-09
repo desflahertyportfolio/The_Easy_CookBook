@@ -130,7 +130,7 @@ display: inline-block;
     border-radius: 10px;
     margin-right:15px;
     float:left;
-    padding-left: 10px;
+   margin-left:15px;
 }
 
 .single-recipe-ingredients {
@@ -175,3 +175,25 @@ display: inline-block;
 .recipe-spacing {
     padding-top: 50px;
 }
+
+.ingredient-text {
+    text-align: justify;
+     padding-right:20px;
+     margin-left:20px;
+}
+
+
+.instruction-text {
+    text-align:justify;
+    padding-right: 20px;
+}
+
+.ingredients-title {
+    padding-top:50px;
+}
+
+.instructions-title {
+    padding-top:50px;
+    text-align: center;
+}
+
