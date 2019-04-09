@@ -74,29 +74,40 @@
                 <img class="img" src="{{recipe.image}}" alt="{{recipe.recipe_name}}">
             </div>
                 <br>   
-                
+                <!--
                 <div class="view_and_like">
-                   
-                        <i  class="far fa-heart"></i>
+                    <i  class="fa fa-thumbs-up"></i>
                     <span> <b>{{ recipe.likes }} likes</b></span>
-                    
+                   -->
+                   
                    <div class="col-xs-12 flex-box">
-                                <div class="flex1 center">
-                                    <p class="inline"><b>Prep Time :</b></p><p class="cuisine-item"> {{ recipe.prep_time }}</P></div>            
-                                <div class="flex1 center"><i class="far fa-clock"></i>
-                                    <p class="inline"><b>Cook Time :</b></p><p class="cuisine-item">  {{ recipe.cook_time }}</p></div>
-                                <div class="flex1 center"><i class="fas fa-utensils"></i>
-                                    <p class="inline"><b>Servings :</b></p> <p class="cuisine-item"> {{ recipe.serves }}</p></div>
+                                <div class="flex1 center"><i class="fa fa-clock-o" style="font-size:24px"></i>
+                                    <p class="inline"><b>Preparation Time :</b></p> {{ recipe.prep_time }}</div>            
+                                <div class="flex1 center"><i class="fa fa-hourglass" style="font-size:24px"></i>
+                                    <p class="inline"><b>Cook Time :</b></p>  {{ recipe.cook_time }}</div>
+                                <div class="flex1 center"><i class="fa fa-cutlery" style="font-size:24px"></i>
+                                    <p class="inline"><b>Servings :</b></p> {{ recipe.serves }}</div>
                                     
                             
                             </div>
                               <div class="col-xs-12 flex-box">
+                                  
                             <div class="flex1 center">
-                                     <p class="inline"><b>Cuisine:</b></p><p class="cuisine-item">{{recipe.cuisine_name }}</p></div>
+                                     <p class="inline">
+                                         <div class="recipe-spacing">
+                                         <b>Cuisine:</b></p><p class="cuisine-item">{{recipe.cuisine_name }}</p></div>
+                                        </div>
+                                         
                                      <div class="flex1 center">
-                                         <p class="inline"><b>Course:</b></p><p class="cuisine-item">{{recipe.course_name }}</p></div>
+                                         <p class="inline">
+                                             <div class="recipe-spacing">
+                                             <b>Course:</b></p><p class="cuisine-item">{{recipe.course_name }}</p></div>
+                                             </div>
                                       <div class="flex1 center">
-                                          <p class="inline"><b>Special Diet: </b><p class="cuisine-item">{{recipe.diet_name }}</p></div>
+                                          <p class="inline">
+                                               <div class="recipe-spacing">
+                                              <b>Special Diet: </b></p><p class="cuisine-item">{{recipe.diet_name }}</p></div>
+                                           </div>
                             </div>
                             
                            
