@@ -30,7 +30,7 @@
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                    
                     <li><a href="{{url_for('index')}}">Home</a></li>
-                    <li><a href="{{url_for('recipes')}}">Recipes</a></li>
+                    <li><a href="{{url_for('recipes_sort')}}">Recipes</a></li>
                     {% if 'user' not in session %}
                     <li><a href="{{url_for('add_user')}}">Register</a></li>
                     <li><a href="{{url_for('login')}}">Login</a></li>
@@ -42,7 +42,7 @@
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="{{url_for('index')}}">Home</a></li>
-                    <li><a href="{{url_for('recipes')}}">Recipes</a></li>
+                    <li><a href="{{url_for('recipes_sort')}}">Recipes</a></li>
                     {% if 'user' not in session %}
                     <li><a href="{{url_for('add_user')}}">Register</a></li>
                     <li><a href="{{url_for('login')}}">Login</a></li>
