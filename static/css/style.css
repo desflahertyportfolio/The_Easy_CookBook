@@ -220,6 +220,12 @@ display: inline-block;
      margin-left:20px;
 }
 
+.description-text {
+    text-align: justify;
+     padding-right:60px;
+     margin-left:60px;
+}
+
 input::-webkit-input-placeholder {
 color: black !important;
 }
