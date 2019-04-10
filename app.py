@@ -183,7 +183,7 @@ def single_recipes(recipe_id):
 def mysingle_recipes(user_recipes_id):
     the_recipe =  mongo.db.Recipe.find_one({"_id": ObjectId(user_recipes_id)})
     return render_template("mysinglerecipe.html",
-                            user_recipes=the_recipe) 
+                            user_recipes=the_recipe,cuisine=mongo.db.Cuisine.find(),course=mongo.db.Course.find(),diet=mongo.db.Special_Diets.find()) 
 
 """
 @app.route('/insert_user', methods=['POST'])
@@ -323,7 +323,8 @@ def update_recipe(user_recipes_id,username):
         'instruction_step_6':request.form.get('instruction_step_6'),
         'image':request.form.get('image'),
         'username': request.form.get('username'),
-        'likes':request.form.get('recipe_likes')
+        'likes':request.form.get('recipe_likes'),
+        'author': request.form.get('author'),
     })
      return redirect(url_for('my_recipes',user_recipes=user_recipe,user=user,username=username))  
 
