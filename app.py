@@ -167,7 +167,7 @@ def recipes():
 @app.route('/recipes_sort')
 def recipes_sort():
     return render_template("recipes.html", cuisine=mongo.db.Cuisine.find(),course=mongo.db.Course.find(),diet=mongo.db.Special_Diets.find(),
-    recipe=mongo.db.Recipe.find().sort("recipe_likes",-1).limit(10)) 
+    recipe=mongo.db.Recipe.find().sort("recipe_likes",-1).limit(8)) 
     
     
                             
