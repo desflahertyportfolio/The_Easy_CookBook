@@ -218,7 +218,7 @@ display: inline-block;
 
 
 .recipe-spacing {
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
 .ingredient-text {
@@ -229,8 +229,8 @@ display: inline-block;
 
 .description-text {
     text-align: justify;
-     padding-right:60px;
-     margin-left:60px;
+     padding-right:40px;
+    padding-left:40px;
 }
 
 input::-webkit-input-placeholder {
@@ -243,7 +243,7 @@ color: black !important;
 }
 
 .ingredients-title {
-    padding-top:50px;
+    padding-top:80px;
 }
 
 .instructions-title {
@@ -251,3 +251,6 @@ color: black !important;
     text-align: center;
 }
 
+.like-icon {
+    padding-bottom:20px;
+}

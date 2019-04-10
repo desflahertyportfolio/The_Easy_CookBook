@@ -331,43 +331,10 @@ def update_recipe(user_recipes_id,username):
 
 
 
-"""
-@app.route('/update_recipe/<recipe_id>', methods=["POST"])
-def update_recipe(recipe_id):
-    recipe = mongo.db.Recipe
-    recipe.update( {'_id': ObjectId(recipe_id)},
-    {
-        'recipe_name':request.form.get('recipe_name'),
-        'recipe_description':request.form.get('recipe_description'),
-        'cuisine_name':request.form.get('cuisine_name'),
-        'course_name':request.form.get('course_name'),
-        'occasion_name':request.form.get('occasion_name'),
-        'diet_name':request.form.get('diet_name'),
-        'skill_name':request.form.get('skill_name'),
-        'ingredients':request.form.get('ingredients'),
-        'cook_time':request.form.get('cook_time'),
-        'prep_time':request.form.get('prep_time'),
-        'serves':request.form.get('serves'),
-        'instruction_step_1':request.form.get('instruction_step_1'),
-        'instruction_step_2':request.form.get('instruction_step_2'),
-        'instruction_step_3':request.form.get('instruction_step_3'),
-        'instruction_step_4':request.form.get('instruction_step_4'),
-        'instruction_step_5':request.form.get('instruction_step_5'),
-        'instruction_step_6':request.form.get('instruction_step_6'),
-        'image':request.form.get('image'),
-        'name':request.form.get('name'),
-        'likes':request.form.get('recipe_likes')
-    })
-    return redirect(url_for('recipes'))  
-"""    
 
-    
-"""
-@app.route('/delete_recipe/<recipe_id>', methods=["POST"])
-def delete_recipe(recipe_id):
-    mongo.db.Recipe.remove({'_id': ObjectId(recipe_id)})
-    return redirect(url_for('recipes'))    
-"""
+      
+
+
 
 
 @app.route('/delete_recipe/<user_recipes_id>/<username>', methods=["POST"])
@@ -398,7 +365,7 @@ def find_multiple_categories():
        
        
        if course and not cuisine and not ingredients and not diet:
-         recipes= mongo.db.Recipe.find({"course_name" :course})
+         recipes= mongo.db.Recipe.find({"course_name" :course}).sort("likes",pymongo.DESCENDING)
          
        elif cuisine and not course  and not ingredients and not diet:
          recipes= mongo.db.Recipe.find({"cuisine_name" :cuisine})
