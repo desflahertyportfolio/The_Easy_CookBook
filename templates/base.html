@@ -22,7 +22,7 @@
 
 <body>
     <header>
-        
+       
       <nav class="teal lighten-1">
             <div class="nav-wrapper">
                 <a href="{{url_for('index')}}" class="brand-logo">The Easy CookBook</a>
@@ -59,7 +59,7 @@
     </header>
     
     
-    
+   
    
         
         {% block content %} {% endblock %}
@@ -72,20 +72,23 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/javascript.js')}}"></script>
    
+ 
    
-   <footer class="page-footer">
+    <footer class="page-footer">
    <div class="footer-copyright">
             <div class="container">
            &copy;2019 The Easy CookBook | design by DF
             </div>
           </div>
         </footer>
+   
+  
+  
 
 
     
 </body>
 
- 
 
 
 </html>

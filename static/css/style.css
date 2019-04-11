@@ -79,7 +79,6 @@ padding-right: 20px;
 .single-recipe-result {
     padding: 10px;
     display: flex;
-    
 }
 
 .inner_recipe_box {
@@ -263,6 +262,9 @@ color: black !important;
     padding-bottom:20px;
 }
 
+
+
+
 .page-footer {
     padding-top: 0px;
     background-color: #26a69a;
@@ -274,6 +276,26 @@ color: black !important;
     text-align: center;
     z-index: 2;
 }
+
+/*
+.page-footer-relative {
+    padding-top: 0px;
+    background-color: #26a69a;
+    width:100%;
+    position: relative;
+    bottom:0;
+    left:0;
+    right:0;
+    text-align: center;
+    z-index: 2;
+    align-items:center;
+    color:#FFF;
+    min-height: 50px;
+}
+*/
+
+
+
 
 nav{
     background-color: #26a69a;
