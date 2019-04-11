@@ -150,10 +150,11 @@
                         <li>
                             <p>{{ recipe.instruction_step_3}}</p>
                         </li>
+                         {% if exists %}
                         <li>
                             <p>{{ recipe.instruction_step_4}}</p>
                         </li>
-                        {% if  exists %}
+                       
                         <li>
                             <p>{{ recipe.instruction_step_5}}</p>
                         </li>
