@@ -29,12 +29,12 @@
   
  <div class="row found_recipe_row">
 {% for user_recipes in user_recipes %}
-    <div class="single-recipe-result col s4 m3 l3">
+    <div class="single-recipe-result col s12 m6 l3">
         <div class="inner_recipe_box">
             <div class="row">
                 <div class="col s12 found_image_box">
                     <a href="{{url_for('mysingle_recipes', user_recipes_id=user_recipes._id)}}">
-                    <img class="found_image" src="{{user_recipes.image}}" alt="{{user_recipes.recipe_name}}">
+                    <img class="found_image" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/b/b1/Missing-image-232x150.png'" src="{{user_recipes.image}}" alt="{{user_recipes.recipe_name}}">
                     </a>
                 </div>
                 
