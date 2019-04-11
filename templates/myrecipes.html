@@ -59,10 +59,29 @@
         </div>
         
     </div>
-    <form action="{{url_for('delete_recipe', user_recipes_id=user_recipes._id,username = session['user'])}}" method="POST">
-            <a href="{{url_for('edit_recipe', user_recipes_id=user_recipes._id,username = session['user'])}}" class="waves-effect waves-light btn btn_small teal lighten-1">Edit Recipe</a>
-             <button type="submit"  class="waves-effect waves-light  red lighten-1 btn btn_small">Delete</button>
+    
+    <a href="{{url_for('edit_recipe', user_recipes_id=user_recipes._id,username = session['user'])}}" class="waves-effect waves-light btn btn_small teal lighten-1">Edit Recipe</a>
+           
+       
+             
+  <form action="{{url_for('delete_recipe', user_recipes_id=user_recipes._id,username = session['user'])}}" method="POST">      
+  <a class="waves-effect waves-light red lighten-1 btn btn_small modal-trigger" href="#modal1">Delete</a>
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Delete Row</h4>
+      <p>Are you sure to delete this row?</p>
+    </div>
+    <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Cancel</a>
+            <button type="submit"  class="modal-action modal-close waves-effect waves-green btn-flat">Yes</button>
+             
+            
+   </div>
+  </div>         
              </form>
+             
+             
+             
 {% endfor %}
 </div>      
                         

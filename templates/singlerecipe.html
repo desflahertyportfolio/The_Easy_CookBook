@@ -117,7 +117,9 @@
                 <p class="inline">
                     <div class="recipe-spacing">
                         <b>Special Diet: </b></p>
+                        {% if exists %}
                 <p class="cuisine-item">{{recipe.diet_name }}</p>
+                         {% endif %}
                 </div>
             </div>
         </div>
