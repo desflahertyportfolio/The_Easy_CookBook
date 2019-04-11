@@ -146,18 +146,21 @@
                         <li>
                             <p>{{ recipe.instruction_step_2}}</p>
                         </li>
+                         
                         <li>
                             <p>{{ recipe.instruction_step_3}}</p>
                         </li>
                         <li>
                             <p>{{ recipe.instruction_step_4}}</p>
                         </li>
+                        {% if  exists %}
                         <li>
                             <p>{{ recipe.instruction_step_5}}</p>
                         </li>
                         <li>
                             <p>{{ recipe.instruction_step_6}}</p>
                         </li>
+                        {% endif %}
                     </ol>
                 </div>
           </div>

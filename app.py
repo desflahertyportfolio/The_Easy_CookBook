@@ -324,7 +324,7 @@ def update_recipe(user_recipes_id,username):
         'image':request.form.get('image'),
         'username': request.form.get('username'),
         'likes':request.form.get('recipe_likes'),
-        'author': request.form.get('author'),
+        'author': request.form.get('author')
     })
      return redirect(url_for('my_recipes',user_recipes=user_recipe,user=user,username=username))  
 

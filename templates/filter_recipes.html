@@ -58,9 +58,9 @@
         <div class="inner_recipe_box">
             <div class="row">
                 <div class="col s12 found_image_box">
-                   
+                   <a href="{{ url_for('single_recipes', recipe_id=recipe._id)}}">
                     <img class="found_image" src="{{recipe.image}}" alt="{{recipe.recipe_name}}">
-                    
+                    </a>
                 </div>
                 
                 <div class="name_box col s12 center">
