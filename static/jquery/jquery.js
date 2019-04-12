@@ -3,7 +3,7 @@
   $('.collapsible').collapsible();
   $('select').material_select(); //form creation
   $(".button-collapse").sideNav({//side nav for mobile view
-   menuWidth: 300,
+   menuWidth: 150,
    closeOnClick: true,
    edge: 'right', // <---side nav open on right
   }); 
