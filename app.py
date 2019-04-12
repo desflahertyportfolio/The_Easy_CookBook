@@ -124,7 +124,7 @@ def register():
        flash("Passwords dont match!")
        return redirect(url_for('register'))
        
-      #  return render_template("register.html")
+    return render_template("register.html")
                     
                     
 # Log out
