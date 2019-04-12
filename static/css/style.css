@@ -240,9 +240,17 @@ display: inline-block;
     padding-left:40px;
 }
 
+/* label focus color */
 input::-webkit-input-placeholder {
 color: black !important;
 }
+
+/* label focus color */
+   .input-field label {
+     color: #000;
+   }
+
+
 
 .instruction-text {
     text-align:justify;
