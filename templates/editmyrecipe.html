@@ -11,8 +11,8 @@
            
            <div class="row">
            <div class="input-field col s12"> 
-           <select id="cuisine" name="cuisine_name">
-            <option value="" disabled selected>Choose Cuisine</option>
+           <select id="cuisine" name="cuisine_name" required>
+            <option value="" disabled selected>Choose Cuisine </option>
             {% for cuisine in cuisine %}
             {% if cuisine.cuisine_name == user_recipes.cuisine_name %}
              <option value="{{cuisine.cuisine_name}}"selected >{{cuisine.cuisine_name}}</option>
@@ -21,14 +21,14 @@
                       {% endif %}
                   {% endfor %}
                 </select>
-                    <label>Cuisine Type</label>
+                    <label>Cuisine Type &#42;</label>
                 </div>
             </div>
              
             <div class="row">
            <div class="input-field col s12"> 
-           <select id="course" name="course_name">
-            <option value="" disabled selected>Choose Course Type</option>
+           <select id="course" name="course_name" required>
+            <option value="" disabled selected>Choose Course Type </option>
             {% for course in course %}
             {% if course.course_name == user_recipes.course_name%}
              <option value="{{course.course_name}}"selected >{{course.course_name}}</option>
@@ -37,14 +37,14 @@
                       {% endif %}
                   {% endfor %}
                 </select>
-                    <label>Choose Course Type</label>
+                    <label>Choose Course Type &#42;</label>
                 </div>
             </div>
              
             <div class="row">
            <div class="input-field col s12"> 
-           <select id="occasion" name="occasion_name">
-            <option value="" disabled selected>Choose Occasion Type</option>
+           <select id="occasion" name="occasion_name" required>
+            <option value="" disabled selected>Choose Occasion Type </option>
             {% for occasion in occasion %}
             {% if occasion.occasion_name == user_recipes.occasion_name%}
              <option value="{{occasion.occasion_name}}"selected >{{occasion.occasion_name}}</option>
@@ -53,7 +53,7 @@
                       {% endif %}
                   {% endfor %}
                 </select>
-                    <label>Occasion</label>
+                    <label>Occasion &#42;</label>
                 </div>
             </div>
              
@@ -76,15 +76,15 @@
              
              <div class="row">
              <div class="input-field col s12">
-                <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{user_recipes.recipe_name}}">
-                <label>Recipe Name</label>
+                <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{user_recipes.recipe_name}}" required>
+                <label>Recipe Name &#42;</label>
             </div>
              </div>
             
             <div class="row">
              <div class="input-field col s12">
-                <input id="recipe_description" name="recipe_description" type="text" class="validate" value="{{user_recipes.recipe_description}}">
-                <label>Recipe Description</label>
+                <input id="recipe_description" name="recipe_description" type="text" class="validate" value="{{user_recipes.recipe_description}}" required>
+                <label>Recipe Description &#42;</label>
             </div>
              </div>
             
@@ -93,32 +93,32 @@
             
                 <div class="row">
                 <div class="input-field col s12">
-                    <input id="prep_time" name="prep_time" type="text" value="{{user_recipes.prep_time}}">
-                <label>Preparation Time</label>
+                    <input id="prep_time" name="prep_time" type="text" value="{{user_recipes.prep_time}}" required>
+                <label>Preparation Time &#42;</label>
                    
                 </div>
             </div>
             
              <div class="row">
                 <div class="input-field col s12">
-                    <input id="cook_time" name="cook_time" type="text" value="{{user_recipes.cook_time}}">
-                <label>Cook Time</label>
+                    <input id="cook_time" name="cook_time" type="text" value="{{user_recipes.cook_time}}" required>
+                <label>Cook Time &#42;</label>
                    
                 </div>
             </div>
             
              <div class="row">
                 <div class="input-field col s12">
-                    <input id="serves" name="serves" type="text" value="{{user_recipes.serves}}">
-                <label>Serves</label>
+                    <input id="serves" name="serves" type="text" value="{{user_recipes.serves}}" required>
+                <label>Serves &#42;</label>
                   
                 </div>
             </div>
             
             <div class="row">
            <div class="input-field col s12"> 
-           <select id="skill" name="skill_name">
-            <option value="" disabled selected>Skill Level</option>
+           <select id="skill" name="skill_name" required>
+            <option value="" disabled selected>Skill Level </option>
             {% for skill in skill %}
             {% if skill.Skill_name == user_recipes.skill_name%}
              <option value="{{skill.Skill_name}}"selected >{{skill.Skill_name}}</option>
@@ -127,35 +127,35 @@
                       {% endif %}
                   {% endfor %}
                 </select>
-                    <label>Choose Skill Level</label>
+                    <label>Choose Skill Level &#42;</label>
                 </div>
             </div>
              
              <div class="row">
                 <div class="input-field col s12">
                     <input id="ingredients" name="ingredients" type="text" class="materialize-textarea" value="{{user_recipes.ingredients}}" required>
-                <label>Ingredients</label>
+                <label>Ingredients &#42;</label>
                 </div>
             </div>
             
                  <div class="row">
                 <div class="input-field col s12">
-                    <input id="instruction_step_1" name="instruction_step_1" type="text" class="materialize-textarea" value="{{user_recipes.instruction_step_1}}">
-                    <label>Cooking Instructions Step 1</label>
+                    <input id="instruction_step_1" name="instruction_step_1" type="text" class="materialize-textarea" value="{{user_recipes.instruction_step_1}}" required>
+                    <label>Cooking Instructions Step 1 &#42;</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="instruction_step_2" name="instruction_step_2" type="text" class="materialize-textarea" value="{{user_recipes.instruction_step_2}}">
-                    <label>Cooking Instructions Step 2</label>
+                    <input id="instruction_step_2" name="instruction_step_2" type="text" class="materialize-textarea" value="{{user_recipes.instruction_step_2}}" required>
+                    <label>Cooking Instructions Step 2 &#42;</label>
                 </div>
             </div>
 
                 <div class="row">
                 <div class="input-field col s12">
-                    <input id="instruction_step_3" name="instruction_step_3" type="text" class="materialize-textarea" value="{{user_recipes.instruction_step_3}}">
-                    <label>Cooking Instructions Step 3</label>
+                    <input id="instruction_step_3" name="instruction_step_3" type="text" class="materialize-textarea" value="{{user_recipes.instruction_step_3}}" required>
+                    <label>Cooking Instructions Step 3 &#42;</label>
                 </div>
             </div>
             
@@ -189,8 +189,8 @@
  
              <div class="row">
                 <div class="input-field col s12">
-                    <input id="author" name="author" type="text" class="materialize-textarea" value="{{user_recipes.author}}" >
-                <label>Created By</label>
+                    <input id="author" name="author" type="text" class="materialize-textarea" value="{{user_recipes.author}}" required>
+                <label>Author &#42;</label>
                 </div>
             </div>
             

@@ -10,34 +10,34 @@
             <div class="row">
                 <div class="input-field col s12">
                     <select id="cuisine" name="cuisine_name" required>
-            <option value="" disabled selected>Choose Cuisine &#42;</option>
+            <option value="" disabled selected>Choose Cuisine </option>
             {% for cuisine in cuisine %}
             <option value="{{cuisine.cuisine_name}}">{{cuisine.cuisine_name}}</option>
             {% endfor %}
             </select>
-                    <label>Cuisine Type</label>
+                    <label>Cuisine Type &#42;</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <select id="course" name="course_name" required>
-            <option value="" disabled selected>Choose Course Type &#42;</option>
+            <option value="" disabled selected>Choose Course Type</option>
             {% for course in course %}
             <option value="{{course.course_name}}">{{course.course_name}}</option>
             {% endfor %}
             </select>
-                    <label>Meal Course</label>
+                    <label>Meal Course &#42;</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <select id="occasion" name="occasion_name" required>
-            <option value="" disabled selected>Choose Occasion Type &#42;</option>
+            <option value="" disabled selected>Choose Occasion Type</option>
             {% for occasion in occasion %}
             <option value="{{occasion.occasion_name}}">{{occasion.occasion_name}}</option>
             {% endfor %}
             </select>
-                    <label>Occasion</label>
+                    <label>Occasion &#42;</label>
                 </div>
             </div>
             <div class="row">
