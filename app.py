@@ -92,7 +92,7 @@ def register():
         return redirect(url_for('index'))
     if request.method == 'POST':
         form = request.form.to_dict()
-        #Check if the password and password1 actualy match 
+        #Check if the password and password1 actually match 
         if form['password'] == form['password1']:
             # If so try to find the user in db
            user = users_collection.find_one({"username" : form['username']})
@@ -150,7 +150,7 @@ def logout():
      #   flash('You must be logged in')
       #  return redirect(url_for('index'))                    
                     
-# END OF CODE CREDIT TO 'MIROSLAV SVEC'
+# END OF CODE CREDIT TO 'MIROSLAV SVEC' FOR SESSION LOGIN
    
 @app.route('/cuisine')
 def cuisine():

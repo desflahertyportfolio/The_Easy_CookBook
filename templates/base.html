@@ -26,7 +26,8 @@
       <nav class="teal lighten-1">
             <div class="nav-wrapper">
                 <a href="{{url_for('index')}}" class="brand-logo">The Easy CookBook</a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                
+                <a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                    
                     <li><a href="{{url_for('index')}}">Home</a></li>
@@ -40,7 +41,7 @@
                     <li><a href="{{url_for('logout')}}">Logout</a></li>
                    {% endif %}
                 </ul>
-                <ul class="side-nav" id="mobile-demo">
+                <ul class="side-nav right" id="mobile-demo" >
                     <li><a href="{{url_for('index')}}">Home</a></li>
                     <li><a href="{{url_for('recipes_sort')}}">Recipes</a></li>
                     {% if 'user' not in session %}

@@ -23,11 +23,21 @@ body {
 
 /************CONTROL BRAND LOGO TEXT SIZE ON MOBILE **************************************/
 
+
 @media screen and (max-width: 440px) {
  nav .brand-logo {
     font-size: 1.2rem;
+    margin-left: 70px;
   }
 }
+
+@media screen and (max-width: 992px) {
+ nav .brand-logo {
+    margin-left: 120px;
+  }
+}
+
+
 
 /************STYLING HOMEPAGE *****************************************************/
 
@@ -139,6 +149,7 @@ padding-right: 20px;
 width:85%;
 }
 }
+
 
 
 .search-container {
