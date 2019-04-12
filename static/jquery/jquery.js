@@ -5,7 +5,7 @@
             $(".button-collapse").sideNav();
             $('#modal1').modal();
             
-          
+         
  });
         
 
