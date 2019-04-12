@@ -27,13 +27,19 @@ body {
 @media screen and (max-width: 440px) {
  nav .brand-logo {
     font-size: 1.2rem;
-    margin-left: 50px;
+    margin-left: 70px;
   }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (min-width: 767px) {
  nav .brand-logo {
-    margin-left: 70px;
+    margin-left: 120px;
+  }
+}
+
+@media screen and (min-width: 1023px) {
+ nav .brand-logo {
+    margin-left:0px;
   }
 }
 
@@ -41,7 +47,7 @@ body {
     background-color:#26a69a;
 }
 
-side-nav li>a {
+.side-nav li>a {
    color:#FFF; 
 }
 
