@@ -1,85 +1,56 @@
 {% extends 'base.html' %} {% block content %}
 
 <main class="container recipe-container margin-top-20">
-    
     <div class="row">
         <p class="recipe-heading">Filtered Recipes</p>
     </div>
-    
-    
-    
-    
-   <!-- counting recipe results --> 
-   
+    <!-- counting recipe results -->
     <div class="row">
-        <div class="col-xs-12 center">
-                
-            {% if recipe_count != None %}
-                {% if recipe_count == 0 %}
-                <div>
-                    <p class="results-found">No results found!</p>
-                </div>
-    
-                {% elif recipe_count == 1 %}
-                <div>
-                    <p class="results-found">{{ recipe_count}} result found!</p>
-                </div>
-                {% else %}
-                <div>
-                    <p class="results-found">{{ recipe_count}} results found!</p>
-                </div>
-                {% endif %}
-            {% endif %}
+        <div class="col s12 center">
+            {% if recipe_count != None %} {% if recipe_count == 0 %}
+            <div>
+                <p class="results-found">No results found!</p>
+            </div>
+            {% elif recipe_count == 1 %}
+            <div>
+                <p class="results-found">{{ recipe_count}} result found!</p>
+            </div>
+            {% else %}
+            <div>
+                <p class="results-found">{{ recipe_count}} results found!</p>
+            </div>
+            {% endif %} {% endif %}
         </div>
     </div>
-    
-    
-    
-    
-    
-    
-<div class="search-btn" >         
-<a href="{{url_for('recipes')}}" class="waves-effect waves-light search-btn btn">Search Again</a>
-</div> 
-
- 
-<div class="row found_recipe_row">
-{% for recipe in recipe %}
-    <div class="single-recipe-result col s12 m6 l3">
-        <div class="inner_recipe_box">
-            <div class="row">
-                <div class="col s12 found_image_box">
-                   <a href="{{ url_for('single_recipes', recipe_id=recipe._id)}}">
+    <div class="search-btn">
+        <a href="{{url_for('recipes')}}" class="waves-effect waves-light search-btn btn">Search Again</a>
+    </div>
+    <div class="row display_recipe">
+        {% for recipe in recipe %}
+        <div class="single-recipe-result col s12 m6 l3">
+            <div class="inner_recipe_box">
+                <div class="row">
+                    <div class="col s12 found_image">
+                        <a href="{{ url_for('single_recipes', recipe_id=recipe._id)}}">
                     <img class="found_image" src="{{recipe.image}}" alt="{{recipe.recipe_name}}">
                     </a>
+                    </div>
+                    <div class="name_box col s12 center">
+                        <b>{{recipe.recipe_name }}</b>
+                    </div>
+                    <div class="center des_box col s12">
+                        <p>{{ recipe.recipe_description |truncate(65) }}</p>
+                    </div>
+                   
+                    <div class="cuisine_box col s12 center">
+                        <div><b>Cuisine</b></div>
+                        {{recipe.cuisine_name }}
+                    </div>
+                   
                 </div>
-                
-                <div class="name_box col s12 center">
-                    <b>{{recipe.recipe_name }}</b>
-                </div>
-                
-                <div class="center allergen_box col s12">
-                    
-                <p>{{ recipe.recipe_description |truncate(65) }}</p>
-                
-                </div>
-                 <div class=" allergen_box col-xs-12 center">
-                 </div>
-                
-                <div class="cuisine_box col s12 center">
-                    <div><b>Cuisine</b></div>
-               {{recipe.cuisine_name }}
-                </div>
-               <div class="row"></div>
             </div>
         </div>
+        {% endfor %}
     </div>
-    
-{% endfor %}
-</div>      
-                      
-                    
-          </main>               
-                     
-
+</main>
 {% endblock %}

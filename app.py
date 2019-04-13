@@ -5,26 +5,17 @@ import pymongo
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from bson.objectid import ObjectId
+import config
 
 app = Flask(__name__)
 
 
-app.config["MONGO_DBNAME"] ='CookBook'
-app.config["MONGO_URI"] ='mongodb+srv://root:Allergan99@myfirstcluster-lgqe5.mongodb.net/CookBook'
+ 
+app.secret_key = config.DB_CONFIG['SECRET_KEY']
+app.config["MONGO_DBNAME"] = config.DB_CONFIG['MONGO_DBNAME']
+app.config["MONGO_URI"] = config.DB_CONFIG['MONGO_URI']
 
-#app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
-app.config['SECRET_KEY']="\xd4\xf3}gi\xa8fK\x87`\xbc\xea\xc5R\x81\xc1Ho\xba'\x85\xd5$\xf4"
 
-"""
-app.debug = False
-if app.debug == True:
-    import config
-    app.config["MONGO_DBNAME"] = config.DB_CONFIG['MONGO_DBNAME']
-    app.config["MONGO_URI"] = config.DB_CONFIG['MONGO_URI']
-else:
-    app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
-    app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
-"""
 
 mongo = PyMongo(app)
 
@@ -69,10 +60,7 @@ def user_auth():
         if check_password_hash(user_in_db['password'], form['password']):
             # Log user in (add to session)
             session['user'] = form['username']
-            # If the user is admin redirect him to admin area
-            #if session['user'] == "admin":
-             #   return redirect(url_for('admin'))
-           # else:
+            
             flash("You were logged in!")
             return redirect(url_for('profile', user=user_in_db['username']))
         else:
@@ -136,28 +124,10 @@ def logout():
     return redirect(url_for('index'))
 
 
-
-# Admin area
-#@app.route('/admin')
-#def admin():
- #   if 'user' in session:
-  #      if session['user'] == "admin":
-   #         return render_template('admin.html')
-    #    else:
-     #       flash('Only Admins can access this page!')
-      #      return redirect(url_for('index'))
-    #else:
-     #   flash('You must be logged in')
-      #  return redirect(url_for('index'))                    
                     
 # END OF CODE CREDIT TO 'MIROSLAV SVEC' FOR SESSION LOGIN
    
-@app.route('/cuisine')
-def cuisine():
-    return render_template("cuisine.html", cuisine=mongo.db.Cuisine.find())    
- 
-    
-
+# BEGIN ROUTES FOR REST OF APP  
 
 @app.route('/recipes')
 def recipes():
@@ -170,8 +140,7 @@ def recipes_sort():
     recipe=mongo.db.Recipe.find().sort("recipe_likes",-1).limit(8)) 
     
     
-                            
-  
+                        
 @app.route('/single_recipes/<recipe_id>')
 def single_recipes(recipe_id):
     the_recipe =  mongo.db.Recipe.find_one({"_id": ObjectId(recipe_id)})
@@ -185,28 +154,13 @@ def mysingle_recipes(user_recipes_id):
     return render_template("mysinglerecipe.html",
                             user_recipes=the_recipe,cuisine=mongo.db.Cuisine.find(),course=mongo.db.Course.find(),diet=mongo.db.Special_Diets.find()) 
 
-"""
-@app.route('/insert_user', methods=['POST'])
-def insert_user():
-    name = request.form.get("name")
-    username = request.form.get("username")
-    password = request.form.get("password")
-    email = request.form.get("email")
-    user =  mongo.db.User_Details
-    user.insert_one({"name":name,"password":password,"email":email,"username":username})
-    return redirect(url_for('recipes'))
-"""
+
     
 @app.route('/add_user')    
 def add_user():
      return render_template('register.html')   
 
-"""     
-@app.route('/logout')    
-def logout():
-     return render_template('base.html')  
 
-"""
 @app.route('/profile/<user>')
 def profile(user): 
     # Check if user is logged in
@@ -240,7 +194,6 @@ def my_recipes(username):
 @app.route('/add_recipes/<username>')
 def add_recipes(username):
      if session['user'] == username:
-        # If so get the user and pass him to template for now
         user_in_db = users_collection.find_one({"username": username})
         return render_template('addrecipe.html',
         cuisine=mongo.db.Cuisine.find(),
@@ -261,22 +214,7 @@ def insert_recipe(username):
        if session['user'] == username:
           user = mongo.db.User_Details.find_one({"username": username})
     return redirect(url_for('my_recipes',user=user,username=username))
-    
-  
-  
-"""
-@app.route('/edit_recipe/<recipe_id>')
-def edit_recipe(recipe_id):
-    the_recipe =  mongo.db.Recipe.find_one({"_id": ObjectId(recipe_id)})
-    all_cuisines =  mongo.db.Cuisine.find()
-    all_courses =  mongo.db.Course.find()
-    all_occasions =  mongo.db.Occasion.find()
-    all_diets =  mongo.db.Special_Diets.find()
-    all_skills =  mongo.db.Skill.find()
-    return render_template('editrecipe.html', recipe=the_recipe,
-                           cuisine=all_cuisines,course=all_courses,
-                           occasion=all_occasions,diet=all_diets,skill=all_skills)
-"""
+ 
 
 @app.route('/edit_recipe/<user_recipes_id>/<username>')
 def edit_recipe(user_recipes_id,username):
@@ -329,14 +267,6 @@ def update_recipe(user_recipes_id,username):
      return redirect(url_for('my_recipes',user_recipes=user_recipe,user=user,username=username))  
 
 
-
-
-
-      
-
-
-
-
 @app.route('/delete_recipe/<user_recipes_id>/<username>', methods=["POST"])
 def delete_recipe(user_recipes_id,username):
     if session['user'] == username:
@@ -346,7 +276,6 @@ def delete_recipe(user_recipes_id,username):
     
                              
 
- 
 
 @app.route("/find_multiple_categories", methods=["GET", "POST"])
 def find_multiple_categories():
@@ -361,22 +290,17 @@ def find_multiple_categories():
        mongo.db.Recipe.create_index([("$**", "text")])
        recipes= mongo.db.Recipe.find({"$text": {"$search": ingredients }})
        
-       
-       
-       
        if course and not cuisine and not ingredients and not diet:
          recipes= mongo.db.Recipe.find({"course_name" :course}).sort("likes",pymongo.DESCENDING)
          
        elif cuisine and not course  and not ingredients and not diet:
          recipes= mongo.db.Recipe.find({"cuisine_name" :cuisine})
          
-         
        elif diet and not course and not cuisine and not ingredients:
          recipes= mongo.db.Recipe.find({"diet_name" :diet}) 
          
        elif ingredients and not course and not cuisine and not diet:
             recipes= mongo.db.Recipe.find({"$text": {"$search": ingredients }})
-          
           
        elif course and cuisine and not ingredients and not diet:
               recipes = mongo.db.Recipe.find({"$and": [{"cuisine_name": cuisine}, {"course_name": course}] }) 
@@ -401,7 +325,6 @@ def find_multiple_categories():
                recipes = mongo.db.Recipe.find({"$and": [{"diet_name": diet},{"course_name": course}, {
                                            "$text": {"$search": ingredients }} ] })                                     
                                            
-       
        elif diet and course and cuisine and not ingredients:
               recipes = mongo.db.Recipe.find({"$and": [{"cuisine_name": cuisine}, {"course_name": course}, {"diet_name" :diet} ]})
               

@@ -1,17 +1,13 @@
 {% extends 'base.html' %} {% block content %}
-
 <main class="container recipe-container margin-top-20">
-    
     <div class="row">
         <p class="recipe-heading">Edit Recipe</p>
     </div>
-     
     <div class="row">
-       <form action="{{url_for('update_recipe', user_recipes_id=user_recipes._id,username = session['user']) }}" method="POST" class="col s12">
-           
-           <div class="row">
-           <div class="input-field col s12"> 
-           <select id="cuisine" name="cuisine_name" required>
+        <form action="{{url_for('update_recipe', user_recipes_id=user_recipes._id,username = session['user']) }}" method="POST" class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <select id="cuisine" name="cuisine_name" required>
             <option value="" disabled selected>Choose Cuisine </option>
             {% for cuisine in cuisine %}
             {% if cuisine.cuisine_name == user_recipes.cuisine_name %}
@@ -24,10 +20,9 @@
                     <label>Cuisine Type &#42;</label>
                 </div>
             </div>
-             
             <div class="row">
-           <div class="input-field col s12"> 
-           <select id="course" name="course_name" required>
+                <div class="input-field col s12">
+                    <select id="course" name="course_name" required>
             <option value="" disabled selected>Choose Course Type </option>
             {% for course in course %}
             {% if course.course_name == user_recipes.course_name%}
@@ -40,10 +35,9 @@
                     <label>Choose Course Type &#42;</label>
                 </div>
             </div>
-             
             <div class="row">
-           <div class="input-field col s12"> 
-           <select id="occasion" name="occasion_name" required>
+                <div class="input-field col s12">
+                    <select id="occasion" name="occasion_name" required>
             <option value="" disabled selected>Choose Occasion Type </option>
             {% for occasion in occasion %}
             {% if occasion.occasion_name == user_recipes.occasion_name%}
@@ -56,10 +50,9 @@
                     <label>Occasion &#42;</label>
                 </div>
             </div>
-             
             <div class="row">
-           <div class="input-field col s12"> 
-           <select id="diets" name="diet_name">
+                <div class="input-field col s12">
+                    <select id="diets" name="diet_name">
             <option value="" disabled selected>Special Diet</option>
             {% for diet in diet %}
              {% if diet.diet_name == user_recipes.diet_name%}
@@ -72,52 +65,39 @@
                     <label>Choose Diet</label>
                 </div>
             </div>
-             
-             
-             <div class="row">
-             <div class="input-field col s12">
-                <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{user_recipes.recipe_name}}" required>
-                <label>Recipe Name &#42;</label>
-            </div>
-             </div>
-            
             <div class="row">
-             <div class="input-field col s12">
-                <input id="recipe_description" name="recipe_description" type="text" class="validate" value="{{user_recipes.recipe_description}}" required>
-                <label>Recipe Description &#42;</label>
+                <div class="input-field col s12">
+                    <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{user_recipes.recipe_name}}" required>
+                    <label>Recipe Name &#42;</label>
+                </div>
             </div>
-             </div>
-            
-            
-            
-            
-                <div class="row">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="recipe_description" name="recipe_description" type="text" class="validate" value="{{user_recipes.recipe_description}}" required>
+                    <label>Recipe Description &#42;</label>
+                </div>
+            </div>
+            <div class="row">
                 <div class="input-field col s12">
                     <input id="prep_time" name="prep_time" type="text" value="{{user_recipes.prep_time}}" required>
-                <label>Preparation Time &#42;</label>
-                   
+                    <label>Preparation Time &#42;</label>
                 </div>
             </div>
-            
-             <div class="row">
+            <div class="row">
                 <div class="input-field col s12">
                     <input id="cook_time" name="cook_time" type="text" value="{{user_recipes.cook_time}}" required>
-                <label>Cook Time &#42;</label>
-                   
+                    <label>Cook Time &#42;</label>
                 </div>
             </div>
-            
-             <div class="row">
+            <div class="row">
                 <div class="input-field col s12">
                     <input id="serves" name="serves" type="text" value="{{user_recipes.serves}}" required>
-                <label>Serves &#42;</label>
-                  
+                    <label>Serves &#42;</label>
                 </div>
             </div>
-            
             <div class="row">
-           <div class="input-field col s12"> 
-           <select id="skill" name="skill_name" required>
+                <div class="input-field col s12">
+                    <select id="skill" name="skill_name" required>
             <option value="" disabled selected>Skill Level </option>
             {% for skill in skill %}
             {% if skill.Skill_name == user_recipes.skill_name%}
@@ -130,87 +110,72 @@
                     <label>Choose Skill Level &#42;</label>
                 </div>
             </div>
-             
-             <div class="row">
+            <div class="row">
                 <div class="input-field col s12">
                     <input id="ingredients" name="ingredients" type="text" class="materialize-textarea" value="{{user_recipes.ingredients}}" required>
-                <label>Ingredients &#42;</label>
+                    <label>Ingredients &#42;</label>
                 </div>
             </div>
-            
-                 <div class="row">
+            <div class="row">
                 <div class="input-field col s12">
                     <input id="instruction_step_1" name="instruction_step_1" type="text" class="materialize-textarea" value="{{user_recipes.instruction_step_1}}" required>
                     <label>Cooking Instructions Step 1 &#42;</label>
                 </div>
             </div>
-
             <div class="row">
                 <div class="input-field col s12">
                     <input id="instruction_step_2" name="instruction_step_2" type="text" class="materialize-textarea" value="{{user_recipes.instruction_step_2}}" required>
                     <label>Cooking Instructions Step 2 &#42;</label>
                 </div>
             </div>
-
-                <div class="row">
+            <div class="row">
                 <div class="input-field col s12">
                     <input id="instruction_step_3" name="instruction_step_3" type="text" class="materialize-textarea" value="{{user_recipes.instruction_step_3}}" required>
                     <label>Cooking Instructions Step 3 &#42;</label>
                 </div>
             </div>
-            
             <div class="row">
                 <div class="input-field col s12">
                     <input id="instruction_step_4" name="instruction_step_4" type="text" class="materialize-textarea" value="{{user_recipes.instruction_step_4}}">
                     <label>Cooking Instructions Step 4</label>
                 </div>
             </div>
-            
             <div class="row">
                 <div class="input-field col s12">
                     <input id="instruction_step_5" name="instruction_step_5" type="text" class="materialize-textarea" value="{{user_recipes.instruction_step_5}}">
                     <label>Cooking Instructions Step 5</label>
                 </div>
             </div>
-            
-          <div class="row">
+            <div class="row">
                 <div class="input-field col s12">
                     <input id="instruction_step_6" name="instruction_step_6" type="text" class="materialize-textarea" value="{{user_recipes.instruction_step_6}}">
                     <label>Cooking Instructions Step 6</label>
                 </div>
             </div>
-            
-        <div class="row">
+            <div class="row">
                 <div class="input-field col s12">
-                    <input id="image" name="image" type="text" class="materialize-textarea" value ="{{user_recipes.image}}">
+                    <input id="image" name="image" type="text" class="materialize-textarea" value="{{user_recipes.image}}">
                     <label>Image</label>
                 </div>
-            </div>    
- 
-             <div class="row">
+            </div>
+            <div class="row">
                 <div class="input-field col s12">
                     <input id="author" name="author" type="text" class="materialize-textarea" value="{{user_recipes.author}}" required>
-                <label>Author &#42;</label>
+                    <label>Author &#42;</label>
                 </div>
             </div>
-            
             <div class="row">
-             <div class="input-field col s12">
-            <select id="username" name="username" type="text" class="validate" required>
+                <div class="input-field col s12">
+                    <select id="username" name="username" type="text" class="validate" required>
             <option value ="{{user.username}}">{{user.username}}</option>
              </select>
+                </div>
             </div>
-             </div>
- 
- 
             <div class="row">
                 <button class="btn waves-effect waves-light" type="submit">Edit Recipe
                 <i class="material-icons right">playlist_add</i>
             </button>
             </div>
         </form>
-
-   
-
 </main>
 {% endblock %}

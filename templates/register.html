@@ -1,59 +1,46 @@
 {% extends 'base.html' %} {% block content %}
 
 <main class="container recipe-container margin-top-20">
-    
     <div class="row">
         <p class="recipe-heading">Registration</p>
     </div>
-     
     <div class="row">
-        <form action="{{url_for('register') }}" method="POST"  class="col s12">
-           
-             <div class="row">
-             <div class="input-field col s12">
-                <input id="name" name="name" type="text" class="validate" required>
-                <label>Full Name &#42;</label>
-            </div>
-             </div>
-             
-             <div class="row">
-             <div class="input-field col s12">
-            <input id="username" name="username" type="text" class="validate" required>
-            <label>Username &#42;</label>
-            </div>
-             </div>
-             
-             <div class="row">
-             <div class="input-field col s12">
-            <input id="password" name="password" type="password" class="validate" required>
-            <label>Password &#42;</label>
-            </div>
-            </div>
-            
+        <form action="{{url_for('register') }}" method="POST" class="col s12">
             <div class="row">
-             <div class="input-field col s12">
-            <input id="password1" name="password1" type="password" class="validate" required>
-            <label for="password1" data-error="Password not match" data-success="Password Match">Confirm Password &#42;</label>
+                <div class="input-field col s12">
+                    <input id="name" name="name" type="text" class="validate" required>
+                    <label>Full Name &#42;</label>
+                </div>
             </div>
-            </div>
-            
             <div class="row">
-             <div class="input-field col s12">
-            <input id="email" name="email" type="email" class="validate" required>
-            <label>Email &#42;</label>
+                <div class="input-field col s12">
+                    <input id="username" name="username" type="text" class="validate" required>
+                    <label>Username &#42;</label>
+                </div>
             </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" name="password" type="password" class="validate" required>
+                    <label>Password &#42;</label>
+                </div>
             </div>
-             
-             
-           
-           <div class="row">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password1" name="password1" type="password" class="validate" required>
+                    <label for="password1" data-error="Password not match" data-success="Password Match">Confirm Password &#42;</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" name="email" type="email" class="validate" required>
+                    <label>Email &#42;</label>
+                </div>
+            </div>
+            <div class="row">
                 <button class="btn waves-effect waves-light" type="submit">Register
                 <i class="material-icons right">playlist_add</i>
             </button>
             </div>
         </form>
-
-   
-
 </main>
 {% endblock %}
