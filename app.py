@@ -16,21 +16,10 @@ app.config["MONGO_URI"] ='mongodb+srv://root:Allergan99@myfirstcluster-lgqe5.mon
 #app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 app.config['SECRET_KEY']="\xd4\xf3}gi\xa8fK\x87`\xbc\xea\xc5R\x81\xc1Ho\xba'\x85\xd5$\xf4"
 
-"""
-app.debug = False
-if app.debug == True:
-    import config
-    app.config["MONGO_DBNAME"] = config.DB_CONFIG['MONGO_DBNAME']
-    app.config["MONGO_URI"] = config.DB_CONFIG['MONGO_URI']
-else:
-    app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
-    app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
-"""
 
-
-
-
-
+#app.secret_key = os.environ.get('SECRET_KEY')
+#app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
+#app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 
 
 mongo = PyMongo(app)
@@ -364,9 +353,8 @@ def find_multiple_categories():
     return render_template('filter_recipes.html',recipe=recipes,ingredients=ingredients,cuisine=cuisine,course=course,diet=diet,recipe_count=recipe_count)
 
 
-
-
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
             debug=True)
+            
