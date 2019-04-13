@@ -32,8 +32,6 @@ body {
 }
 
 
-
-
 @media screen and (min-width: 767px) {
  nav .brand-logo {
     margin-left: 120px;
@@ -45,6 +43,12 @@ body {
  nav .brand-logo {
     margin-left:0px;
   }
+}
+
+@media only screen and (max-width: 600px) {
+.img {
+margin-bottom:40px;
+}
 }
 
 
@@ -201,11 +205,7 @@ display: inline-block;
 }
 
 
-@media only screen and (max-width: 440px) {
-.img {
-margin-bottom:40px;
-}
-}
+
 
 
 
