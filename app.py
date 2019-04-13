@@ -3,21 +3,19 @@ from flask import Flask, render_template, redirect, request, url_for, session, f
 from flask_pymongo import PyMongo
 import pymongo
 from werkzeug.security import generate_password_hash, check_password_hash
-
 from bson.objectid import ObjectId
 
 
 
 app = Flask(__name__)
 
-app.config["MONGO_DBNAME"] ='CookBook'
-app.config["MONGO_URI"] ='mongodb+srv://root:Allergan99@myfirstcluster-lgqe5.mongodb.net/CookBook'
+#app.config["MONGO_DBNAME"] ='CookBook'
+#app.config["MONGO_URI"] ='mongodb+srv://root:Allergan99@myfirstcluster-lgqe5.mongodb.net/CookBook'
+#app.config['SECRET_KEY']="\xd4\xf3}gi\xa8fK\x87`\xbc\xea\xc5R\x81\xc1Ho\xba'\x85\xd5$\xf4"
 
-#app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
-app.config['SECRET_KEY']="\xd4\xf3}gi\xa8fK\x87`\xbc\xea\xc5R\x81\xc1Ho\xba'\x85\xd5$\xf4"
+app.config["MONGO_URI"] = "mongodb://localhost:8080/CookBook"
 
-
-#app.secret_key = os.environ.get('SECRET_KEY')
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 #app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 #app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 
