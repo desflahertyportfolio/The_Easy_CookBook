@@ -56,7 +56,9 @@
 * When edited the new information is written to the database
 * Newly updated recipe is called from the database
 * The edited recipe is displayed to the user in the my recipe page
+* Tested on mobile and view is responsive
 
-
-
+*Delete Recipe*
+* When the user clicks the delete button in my single recipes page a modal confirmation is displayed
+* The delete removes the recipe from the database and the user is redirected to the my recipes pages
 
