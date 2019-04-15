@@ -23,6 +23,9 @@
 * Password and confirmation password must match
 * When the user registers they are re-directed to the profile page where their username is displayed
 
+![picture](static/images/testing/register.jpg)
+
+
 *Profile.html*
 * Username is displayed center of screen with a message that you can now create a recipe
 * Navbar has changed to show 'Add Recipes','My Recipes' and 'Logout' buttons
@@ -32,6 +35,8 @@
 * Passwords on the form page must match
 * When username & password is entered the user is directed to the profile page
 
+![picture](static/images/testing/login.jpg)
+
 *Recipes.html*
 * Recipes are displayed in a grid - large view shows 4 recipes across, mobile shows one recipe scrolling down the page
 * The user can search from dropdown menus by cuisine, course or diet
@@ -40,15 +45,35 @@
 * Recipes can be further filterd by choosing additional filter options
 
 ![picture](static/images/testing/search_american_cuisine.jpg)
+![picture](static/images/testing/combo_search.jpg)
+![picture](static/images/testing/combo_search_result.jpg)
 
 *My Recipes*
 * If no recipes have been created by a logged in user a message will display to inform the user of this
 * Once a recipe has been created it dislpays here
 * There is a count of the number of recipes displayed
 
+![picture](static/images/testing/my_recipes_no_recipe.jpg)
+![picture](static/images/testing/add_recipe.jpg)
+![picture](static/images/testing/my_recipe_mobile.jpg)
+
+
+*Single Recipe*
+* Detailed view of recipes
+* Responsive on tested devices
+
+![picture](static/images/testing/single_recipe_ipad.jpg)
+![picture](static/images/testing/my_recipe_mobile.jpg)
+
 *My Single Recipe*
 * Detailed view of created recipe
 * Edit and Delete buttons are available
+
+![picture](static/images/testing/my_recipe.jpg)
+
+*Add Recipe*
+* Form for a user to add a recipe
+
 
 *Edit My Recipe*
 * When Edit is clicked the edit form opens with the required fields populated
@@ -58,7 +83,11 @@
 * The edited recipe is displayed to the user in the my recipe page
 * Tested on mobile and view is responsive
 
+![picture](static/images/testing/edited_recipe.jpg)
+
 *Delete Recipe*
 * When the user clicks the delete button in my single recipes page a modal confirmation is displayed
 * The delete removes the recipe from the database and the user is redirected to the my recipes pages
+
+![picture](static/images/testing/delete_modal.jpg)
 
