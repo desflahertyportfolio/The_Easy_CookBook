@@ -19,11 +19,6 @@
             <!--    <p class="signin-btn center"><a href="{{url_for('add_recipes',username = session['user'])}}">Add Recipe</a></p> -->
             {% endif %}
         </div>
-        
-        
-        
-        
-        
         <div class="row display_recipe">
             {% for user_recipes in user_recipes %}
             <div class="single-recipe-result col s12 m6 l3">
@@ -44,12 +39,9 @@
                                 <div><b>Cuisine</b></div>
                                 {{user_recipes.cuisine_name }}
                             </div>
-                            
                         </div>
                     </div>
                 </div>
-                
-                
                 {% endfor %}
             </div>
 </main>

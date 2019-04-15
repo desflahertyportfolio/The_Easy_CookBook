@@ -5,8 +5,7 @@
   $(".button-collapse").sideNav({//side nav for mobile view
    menuWidth: 150,
    closeOnClick: true,
-   edge: 'right', // <---side nav open on right
-  }); 
+   edge: 'right' }); // <---side nav open on right
   $('#modal1').modal(); //Delete message confirmation popup
   // HTML Form validation for dropdown menus
   $("select[required]").css({ display: "block", height: 0, padding: 0, width: 0, position: 'absolute' });
