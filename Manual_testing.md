@@ -24,6 +24,7 @@
 * When the user registers they are re-directed to the profile page where their username is displayed
 
 ![picture](static/images/testing/register.jpg)
+![picture](static/images/testing/profile.jpg)
 
 
 *Profile.html*

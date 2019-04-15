@@ -12,6 +12,8 @@ The project developed should allow users to
 * Optional register and login functionality to allow a user to track their own recipes.
 * Design a backend database to group recipes by attributes such as Cuisine, Country, Ingredients
 
+* Project has been published to the Heroku website https://easy-cookbook.herokuapp.com/
+
 ## UX
 
 *Strategy:*
@@ -29,7 +31,7 @@ As a user of the recipe cookbook I should be able to:
 * Be able to view a detailed page of the recipe to include cooking time, ingredients and instrucitons with an optional image displayed
 
 A mockups for the proposed cookbook can be viewed on githib 
-https://github.com/desflaherty/milestoneproject3/tree/master/Wireframes
+<a href="https://github.com/desflaherty/milestoneproject3/tree/master/Wireframes">Wireframes</a>
 
 ## Existing Features
 
@@ -143,5 +145,49 @@ This page is for users that have registered and have logged in
 *Manual Testing*
 <a href="https://github.com/desflaherty/milestoneproject3/blob/master/Manual_testing.md">Manual Testing</a>
 
+## Testing Issues
 
+## Features left to implement
+
+## Validation
+*HTML*
+* Checked with W3C validator. Only Jinja related errors due to the validation not programmed to read them
+*CSS*
+* Checked with CSS lint. No errors were displayed
+*Python*
+
+## Database Schema
+
+## Deployment
+*Deployment to Heroku*
+* Created a new app called easy-cookbook
+* heroku login Entered username and password.
+* git init to initialise a git repository.
+* git remote add heroku https://easy-cookbook.herokuapp.com/ to link the GitHub repository to the Heroku app.
+* pip3 freeze --local > requirements.txt Creates a .txt file which tells Heroku what dependencies the project is using.
+* echo web: python run.py >procfile Tells Heroku that this project is a web app and that "app.py" is going the run it.
+* ps:scale web=1
+*Set config variables in the app.py file so Heroku can find them*
+* app.config["SECRET_KEY"] = os.environ.get('SECRET_KEY')
+* app.config["MONGO_DBNAME"] = os.environ.get('MONGO_DBNAME')
+* app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
+*Push to Heroku in the command terminal*
+* git add
+* git commit -m "message"
+* git push heroku master pushes the project to Heroku.
+*Heroku config variables*
+* In Heroku set config variables
+* IP = `0.0.0.0`
+* PORT =  `8080`
+* SECRET_KEY = |secret key|
+* MONGO_DBNAME = |database name|
+* MONGO_URI = mongodb://|username|:|password|@xxxxxxxxxxxxxx/|database name|
+
+* Project deployed https://easy-cookbook.herokuapp.com/
+
+*Running code locally*
+
+
+
+## Credits
 
