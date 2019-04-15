@@ -1,5 +1,3 @@
-In this project, you’ll be building a data-driven web application using the technologies that you have learned throughout Data Centric Development. You can either choose to to follow the example brief below, or you can use your own idea for the website.
-
 # Project Name: The Easy CookBook
 
 I decided to use the sample brief given to students for the project to create a web application that allows users to store and easily access cooking recipes.
@@ -143,5 +141,7 @@ This page is for users that have registered and have logged in
 ## Testing
 
 *Manual Testing*
+<a href="https://github.com/desflaherty/milestoneproject3/blob/master/Manual_testing.md">Manual Testing</a>
+
 
 
