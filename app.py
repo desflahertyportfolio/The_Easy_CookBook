@@ -9,7 +9,7 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
-#RUN LOCALLY
+#TO RUN LOCALLY UNCOMMENT IMPORT CONFIG
 #import config
 #app.secret_key = config.DB_CONFIG['SECRET_KEY']
 #app.config["MONGO_DBNAME"] = config.DB_CONFIG['MONGO_DBNAME']

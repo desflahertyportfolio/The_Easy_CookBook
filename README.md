@@ -71,13 +71,13 @@ A mockups for the proposed cookbook can be viewed on githib
 * A counter displays the number of recipes that the user has created
 
 *Single Recipe*
-This page displays a detailed view of each recipe
+(This page displays a detailed view of each recipe)
 * Recipe name, preparation time, cooking time, serving, ingredients, cooking instructions
 * An image is displayed
 * The cuisine type, course type and diet are highlighted
 
 *My Single Recipe*
-This page is for users that have registered and have logged in
+(This page is for users that have registered and have logged in)
 * A detailed view of the recipe is displayed
 * Users also have the option to edit or delete the recipe
 
@@ -151,12 +151,28 @@ This page is for users that have registered and have logged in
 
 ## Validation
 *HTML*
-* Checked with W3C validator. Only Jinja related errors due to the validation not programmed to read them
+* Checked with W3C validator. Only Jinja related errors due to the validation not programmed these
 *CSS*
 * Checked with CSS lint. No errors were displayed
 *Python*
 
 ## Database Schema
+
+### There are 7 Collections in the Mongo database schema
+
+![picture](static/images/testing/mongo_schema.jpg)
+
+* In the Cuisine,Course,Occasion,Skill,Special_Diets collections are created using name, value pairs
+* Each object in these collections have a unique object id which is the primary key in the collection
+* User_Details collection contains the user details that are entered through the front end form in the app with a hashed password
+* The Recipe collection contains the foreign keys from the Cuisine, Course, Occasion, Skill, Special_Diets collections and username
+* The Recipe collection contains all details used to display the recipe in the single recipe page on the site
+* Username in the recipe collection is added when the user creates a recipe after they login to the website
+
+![picture](static/images/testing/user_in_db.jpg)
+![picture](static/images/testing/recipe_in_db.jpg)
+
+
 
 ## Deployment
 *Deployment to Heroku*
@@ -186,7 +202,28 @@ This page is for users that have registered and have logged in
 * Project deployed https://easy-cookbook.herokuapp.com/
 
 *Running code locally*
-
+* git clone https://github.com/desflaherty/milestoneproject3
+* sudo pip3 install flask
+* sudo pip3 install pymongo
+* sudo pip3 install flask_pymongo
+* setup a database in mongo db 
+* setup a username and password for the database
+* Take note of the MongoDB URI after creating a user e.g mongodb://|yourusername|:|yourpassword|@mongodb.net/|yourdatabasename
+* create collections needed for cuisine, course, occasion, diet, recipe, skill, user details
+* In the project folder create a config.py file
+* In the terminal line enter echo 'config.py' > gitignore to hide the config.py file
+* In the config.py file enter the following:
+   *DB_CONFIG={   
+   *'MONGO_DBNAME':'databasename',
+   *'MONGO_URI':'mongodb+srv://password/cluster-lgqe5.mongodb.net/databasename',
+   *'SECRET_KEY':"secret key"
+   *}
+* In app.py, set the app.config variables to the variables set in the config.py file
+    *import config
+    *app.secret_key = config.DB_CONFIG['SECRET_KEY']
+    *app.config["MONGO_DBNAME"] = config.DB_CONFIG['MONGO_DBNAME']
+    *app.config["MONGO_URI"] = config.DB_CONFIG['MONGO_URI']
+*In the terminal run python3 app.py to run the app
 
 
 ## Credits
