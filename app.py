@@ -37,8 +37,6 @@ def index():
 # CONTACTED VIA SLACK FOR ASSISTANCE
 # CREATING A SESSION FOR USER REGISTRATION & LOGIN
 
-
-
 #Login
 
 @app.route('/login', methods=['GET'])
@@ -128,10 +126,9 @@ def logout():
     flash('You were logged out!')
     return redirect(url_for('index'))
 
-
-                    
 # END OF CODE CREDIT TO 'MIROSLAV SVEC' FOR SESSION LOGIN
-   
+
+
 # BEGIN ROUTES FOR REST OF APP  
 
 @app.route('/recipes')

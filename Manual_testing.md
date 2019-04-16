@@ -68,7 +68,7 @@
 
 *My Single Recipe*
 * Detailed view of created recipe
-* Edit and Delete buttons are available
+* Edit and Delete buttons are available and working
 
 ![picture](static/images/testing/my_recipe.jpg)
 
@@ -91,4 +91,39 @@
 * The delete removes the recipe from the database and the user is redirected to the my recipes pages
 
 ![picture](static/images/testing/delete_modal.jpg)
+
+## Responsive Testing
+* Responsinator was used to check responsiveness of different devices - https://www.responsinator.com 
+* Google Chrome developer was also used.
+* Devices tested on include: Galaxy S5, iPhone 5/SE, iPhone 6/7/8, iPhone 6/7/8 Plus, iPhone X, iPad, iPad Pro, Desktop PC
+
+## Browser Testing
+* Browsers tested were Google Chrome,Internet Explorer and Firefox. Also the Safari browser on iPhone.
+
+The criteria used for testing included:
+
+* Functionality
+* Navigation
+* Display
+
+The format used for testing can be viewed below. 
+
+| Feature         | Device        | Browser   | Result | 
+| -------------   |:------------- | :------   | :----- |
+| Menu Links      |IPhone         | Chrome    | Pass   |
+| Register        |IPhone         | Chrome    | Pass   |
+| Login           |IPhone         | Chrome    | Pass   |
+| Recipes         |IPhone         | Chrome    | Pass   |
+| My Recipes      |IPhone         | Chrome    | Pass   |
+| Single Recipe   |IPhone         | Chrome    | Pass   |
+| MySingle Recipe |IPhone         | Chrome    | Pass   |
+| Logout          |IPhone         | Chrome    | Pass   |
+| Menu Links      |Desktop        | Chrome    | Pass   |
+| Register        |Desktop        | Chrome    | Pass   |
+| Login           |Desktop        | Chrome    | Pass   |
+| Recipes         |Desktop        | Chrome    | Pass   |
+| My Recipes      |Desktop        | Chrome    | Pass   |
+| Single Recipe   |Desktop        | Chrome    | Pass   |
+| MySingle Recipe |Desktop        | Chrome    | Pass   |
+| Logout          |Desktop        | Chrome    | Pass   |
 

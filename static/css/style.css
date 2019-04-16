@@ -264,7 +264,7 @@ nav ul a {
     padding-left: 40px;
 }
 
-/* label focus color */
+/* color of text for the 'search ingredients' input box overwrite default materialize grey*/
 
 input::-webkit-input-placeholder {
     color: black !important;

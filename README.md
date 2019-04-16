@@ -13,6 +13,7 @@ The project developed should allow users to
 * Design a backend database to group recipes by attributes such as Cuisine, Country, Ingredients
 
 * Project has been published to the Heroku website https://easy-cookbook.herokuapp.com/
+* The github repository is located at <a href="https://github.com/desflaherty/milestoneproject3">Github CookBook</a>
 
 ## UX
 
@@ -140,14 +141,30 @@ A mockups for the proposed cookbook can be viewed on githib
 * Font 'Abel' used throughout the site
 * href=//fonts.googleapis.com
 
+*Amazon web services*
+* AWS S3 bucket services were used to create a bucket where images for the recipes could be stored
+* The URL path to these images were then added to the respective recipe in the Mongo database
+
 ## Testing
 
 *Manual Testing*
 <a href="https://github.com/desflaherty/milestoneproject3/blob/master/Manual_testing.md">Manual Testing</a>
 
 ## Testing Issues
+* On FireFox the CSS overwriting the grey text default to black for materialize text input box in the search ingredients menu does not work.  
+* The username check to ensure that another user can't use the same username in the db does not fire, and results in a redirect loop with an error returned to the browser
+* I could not achieve the desired functionality for recipes returned after being filtered using flex 'align-items flex-start'. 
+Example on desktop if two recipes are displayed there is a white space gap between the recipes. This is only an issue on large screens.
+* Flash messages that should appear during the login and register process are not firing
+
 
 ## Features left to implement
+* Recipe likes were manually added to the database for this project. FOr the next milestone project a counter will be developed to track likes by registered users.
+* A view count could be implemented to track the number of times a recipe page was viewed
+* Further validation control could be implemented on user login and register to provide feedback to the user 
+* Custom form validation could be added using Javascript, currently HTML validation is used
+* The design of the database schema could be further improved to add functionality for tracking user activity on the website
+* Ingredients in the single recipe page could be displayed in bullet format using programming logic
 
 ## Validation
 *HTML*
@@ -155,6 +172,7 @@ A mockups for the proposed cookbook can be viewed on githib
 *CSS*
 * Checked with CSS lint. No errors were displayed
 *Python*
+* PEP8 was used to check code for any major errors
 
 ## Database Schema
 
@@ -162,12 +180,13 @@ A mockups for the proposed cookbook can be viewed on githib
 
 ![picture](static/images/testing/mongo_schema.jpg)
 
-* In the Cuisine,Course,Occasion,Skill,Special_Diets collections are created using name, value pairs
-* Each object in these collections have a unique object id which is the primary key in the collection
-* User_Details collection contains the user details that are entered through the front end form in the app with a hashed password
+* In the Cuisine,Course,Occasion,Skill and Special_Diets collections are created using 'name, value pairs'
+* The dropdown menu items used in the search form are built from the collections mentioned above - Cuisine,Course,Skill,Special_Diets
+* Each object in these collections has a unique object id which is the primary key in the collection
+* The User_Details collection contains the user details that are entered through the front end form in the app with a hashed password
 * The Recipe collection contains the foreign keys from the Cuisine, Course, Occasion, Skill, Special_Diets collections and username
 * The Recipe collection contains all details used to display the recipe in the single recipe page on the site
-* Username in the recipe collection is added when the user creates a recipe after they login to the website
+* Username in the Recipe collection is added when the user creates a recipe after they login to the website
 
 ![picture](static/images/testing/user_in_db.jpg)
 ![picture](static/images/testing/recipe_in_db.jpg)
@@ -227,4 +246,17 @@ A mockups for the proposed cookbook can be viewed on githib
 
 
 ## Credits
+
+### Data
+* The recipe information used for the project was sourced online from http://www.foodnetwork.co.uk/recipes.html
+* The background image for the site was sourced from https://unsplash.com
+
+### Code
+* The session register and login code used in the app.py file was sourced from a fellow student MIROSLAV SVEC as referenced in the file
+* https://materializecss.com was used for the navigation framework 
+* The code used to fire HTML validation for the dropdown menus was sourced from stack overflow - https://stackoverflow.com/questions/34248898/how-to-validate-select-option-for-a-materialize-dropdown/40124502
+* The code for the modal delete confirmation was sourced from materialize https://materializecss.com/modals.html
+* Jquery code used for password match was sourced https://gist.github.com/grayghostvisuals/6984561
+
+
 
