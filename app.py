@@ -63,7 +63,6 @@ def user_auth():
         if check_password_hash(user_in_db['password'], form['password']):
             # Log user in (add to session)
             session['user'] = form['username']
-            
             flash("You were logged in!")
             return redirect(url_for('profile', user=user_in_db['username']))
         else:
@@ -88,7 +87,6 @@ def register():
             # If so try to find the user in db
            user = users_collection.find_one({"username" : form['username']})
         if user:
-          flash("{form['username']} already exists!")
           return redirect(url_for('register'))
             # If user does not exist register new user
         else:                
