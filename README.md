@@ -167,12 +167,9 @@ Example on desktop if two recipes are displayed there is a white space gap betwe
 * Ingredients in the single recipe page could be displayed in bullet format using programming logic
 
 ## Validation
-*HTML*
-* Checked with W3C validator. Only Jinja related errors due to the validation not programmed these
-*CSS*
-* Checked with CSS lint. No errors were displayed
-*Python*
-* PEP8 was used to check code for any major errors
+* HTML:Checked with W3C validator. Only Jinja related errors due to the validation not programmed these
+* CSS:Checked with CSS lint. No errors were displayed
+* Python: PEP8 was used to check code for any major errors
 
 ## Database Schema
 
@@ -181,6 +178,9 @@ Example on desktop if two recipes are displayed there is a white space gap betwe
 ![picture](static/images/testing/mongo_schema.jpg)
 
 * In the Cuisine,Course,Occasion,Skill and Special_Diets collections are created using 'name, value pairs'
+
+![picture](static/images/testing/my_recipe_mobile.jpg)
+
 * The dropdown menu items used in the search form are built from the collections mentioned above - Cuisine,Course,Skill,Special_Diets
 * Each object in these collections has a unique object id which is the primary key in the collection
 * The User_Details collection contains the user details that are entered through the front end form in the app with a hashed password
