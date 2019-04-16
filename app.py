@@ -10,16 +10,16 @@ from bson.objectid import ObjectId
 app = Flask(__name__)
 
 #TO RUN LOCALLY UNCOMMENT IMPORT CONFIG
-#import config
-#app.secret_key = config.DB_CONFIG['SECRET_KEY']
-#app.config["MONGO_DBNAME"] = config.DB_CONFIG['MONGO_DBNAME']
-#app.config["MONGO_URI"] = config.DB_CONFIG['MONGO_URI']
+import config
+app.secret_key = config.DB_CONFIG['SECRET_KEY']
+app.config["MONGO_DBNAME"] = config.DB_CONFIG['MONGO_DBNAME']
+app.config["MONGO_URI"] = config.DB_CONFIG['MONGO_URI']
 
 
 #TO PUSH TO HEROKU
-app.config["SECRET_KEY"] = os.environ.get('SECRET_KEY')
-app.config["MONGO_DBNAME"] = os.environ.get('MONGO_DBNAME')
-app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
+#app.config["SECRET_KEY"] = os.environ.get('SECRET_KEY')
+#app.config["MONGO_DBNAME"] = os.environ.get('MONGO_DBNAME')
+#app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 
 
 mongo = PyMongo(app)
@@ -63,7 +63,6 @@ def user_auth():
         if check_password_hash(user_in_db['password'], form['password']):
             # Log user in (add to session)
             session['user'] = form['username']
-            flash("You were logged in!")
             return redirect(url_for('profile', user=user_in_db['username']))
         else:
             flash("Wrong password or user name!")
@@ -87,6 +86,7 @@ def register():
             # If so try to find the user in db
            user = users_collection.find_one({"username" : form['username']})
         if user:
+          flash('Sorry, that username is already taken!')
           return redirect(url_for('register'))
             # If user does not exist register new user
         else:                
@@ -115,7 +115,6 @@ def register():
 def logout():
     # Clear the session
     session.clear()
-    flash('You were logged out!')
     return redirect(url_for('index'))
 
 # END OF CODE CREDIT TO 'MIROSLAV SVEC' FOR SESSION LOGIN

@@ -56,7 +56,17 @@ body {
 
 .side-nav li>a {
     color: #FFF;
+    font-size: 22px;
 }
+
+
+/************FLASH MESSAGE**************************************/
+
+.flash {
+    color: #FFF;
+    font-size: 20px;
+}
+
 
 /************STYLING HOMEPAGE *****************************************************/
 
@@ -74,6 +84,7 @@ nav ul a {
 .register-text {
     color: #FFF;
     font-size: 2rem;
+    margin-bottom: 60px;
 }
 
 
@@ -310,6 +321,4 @@ input::-webkit-input-placeholder {
 
 
 
-nav {
-    background-color: #26a69a;
-}
+

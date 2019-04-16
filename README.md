@@ -150,9 +150,7 @@ A mockups for the proposed cookbook can be viewed on githib
 <a href="https://github.com/desflaherty/milestoneproject3/blob/master/Manual_testing.md">Manual Testing</a>
 
 ## Testing Issues
-* On FireFox the CSS overwriting the grey text default to black for materialize text input box in the search ingredients menu does not work.  
-* Flash messages that should appear during the login and register process are not firing
-
+* On FireFox the CSS overwriting the materialize default text color for search text input box does not display as black. Default grey colur is shown.
 
 ## Features left to implement
 * Recipe likes were manually added to the database for this project. For the next milestone project a counter will be developed to track likes by registered users.

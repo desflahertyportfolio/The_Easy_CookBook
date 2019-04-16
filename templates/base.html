@@ -44,6 +44,23 @@
                 </ul>
             </div>
         </nav>
+        
+        <!-- Alerts modal for flash messages -->
+			<div id="alerts" class="container">
+				<div class="flash">
+					<div id="messages">
+						{% with messages = get_flashed_messages() %}
+						{% if messages %}
+						{% for message in messages %}
+						<p class="text-center">{{ message }}</p>
+						{% endfor %}
+						{% endif %}
+						{% endwith %}
+					</div>
+				</div>
+			</div>
+        
+        
     </header>
   {% block content %} {% endblock %}
     <script type="text/javascript" src="{{ url_for('static', filename='jquery/jquery.min.js')}}"></script>
