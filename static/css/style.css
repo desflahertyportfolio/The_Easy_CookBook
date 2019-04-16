@@ -81,17 +81,18 @@ nav ul a {
     padding-right: 20px;
 }
 
-.index-text {
+
+
+.register-text {
+    margin-bottom: 40px;
     color: #FFF;
     font-size: 2rem;
 }
 
-.register-text {
-    margin-bottom: 40px;
-}
-
 .profile-text {
      margin-bottom: 110px;
+     color: #FFF;
+    font-size: 2rem;
 }
 
 
