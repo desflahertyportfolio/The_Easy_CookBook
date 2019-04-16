@@ -147,7 +147,6 @@ A mockups for the proposed cookbook can be viewed on githib
 
 ## Testing
 
-*Manual Testing*
 <a href="https://github.com/desflaherty/milestoneproject3/blob/master/Manual_testing.md">Manual Testing</a>
 
 ## Testing Issues
@@ -179,7 +178,7 @@ Example on desktop if two recipes are displayed there is a white space gap betwe
 
 * In the Cuisine,Course,Occasion,Skill and Special_Diets collections are created using 'name, value pairs'
 
-![picture](static/images/testing/my_recipe_mobile.jpg)
+![picture](static/images/testing/cuisine_collection.jpg)
 
 * The dropdown menu items used in the search form are built from the collections mentioned above - Cuisine,Course,Skill,Special_Diets
 * Each object in these collections has a unique object id which is the primary key in the collection
