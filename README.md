@@ -151,14 +151,11 @@ A mockups for the proposed cookbook can be viewed on githib
 
 ## Testing Issues
 * On FireFox the CSS overwriting the grey text default to black for materialize text input box in the search ingredients menu does not work.  
-* The username check to ensure that another user can't use the same username in the db does not fire, and results in a redirect loop with an error returned to the browser
-* I could not achieve the desired functionality for recipes returned after being filtered using flex 'align-items flex-start'. 
-Example on desktop if two recipes are displayed there is a white space gap between the recipes. This is only an issue on large screens.
 * Flash messages that should appear during the login and register process are not firing
 
 
 ## Features left to implement
-* Recipe likes were manually added to the database for this project. FOr the next milestone project a counter will be developed to track likes by registered users.
+* Recipe likes were manually added to the database for this project. For the next milestone project a counter will be developed to track likes by registered users.
 * A view count could be implemented to track the number of times a recipe page was viewed
 * Further validation control could be implemented on user login and register to provide feedback to the user 
 * Custom form validation could be added using Javascript, currently HTML validation is used
