@@ -56,7 +56,6 @@ body {
 
 .side-nav li>a {
     color: #FFF;
-    font-size: 22px;
 }
 
 
@@ -82,7 +81,6 @@ nav ul a {
 }
 
 
-
 .register-text {
     margin-bottom: 40px;
     color: #FFF;
@@ -92,11 +90,8 @@ nav ul a {
 .profile-text {
      margin-bottom: 110px;
      color: #FFF;
-    font-size: 2rem;
+     font-size: 2rem;
 }
-
-
-
 
 
 /************FILTERED RESULTS *****************************************************/
