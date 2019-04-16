@@ -21,9 +21,11 @@
 *Register.html*
 * All fields are required and a HTML validation message is displayed if the user tries to submit the form with a blank row
 * Password and confirmation password must match
+* If the username is taken a flash message will be displayed
 * When the user registers they are re-directed to the profile page where their username is displayed
 
 ![picture](static/images/testing/register.jpg)
+![picture](static/images/testing/flash_reg.jpg)
 ![picture](static/images/testing/profile.jpg)
 
 
@@ -34,8 +36,10 @@
 
 *Login.html*
 * Passwords on the form page must match
+* Password must match to teh database or else a flash message is displayed
 * When username & password is entered the user is directed to the profile page
 
+![picture](static/images/testing/flash_login.jpg)
 ![picture](static/images/testing/login.jpg)
 
 *Recipes.html*

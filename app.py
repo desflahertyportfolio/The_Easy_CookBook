@@ -162,7 +162,6 @@ def profile(user):
         user_in_db = users_collection.find_one({"username": user})
         return render_template('profile.html', user=user_in_db)
     else:
-        flash("You must be logged in!")
         return redirect(url_for('index'))
 
 

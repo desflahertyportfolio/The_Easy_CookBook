@@ -53,6 +53,8 @@ A mockups for the proposed cookbook can be viewed on githib
 * A password is chosen which is hashed in the database for security
 * There is a form control implemented where a chosen password and confirmation password must match
 * This username will be used to log in and identify a recipe belonging to that user
+* If a username is already taken a flash message will be dispalyed and the register page is redirected
+* If the user login username or password is incorrect a flash message will be displayed
 
 *Profile*
 * Displays the username and a welcome message when the user has logged into the site
@@ -155,7 +157,6 @@ A mockups for the proposed cookbook can be viewed on githib
 ## Features left to implement
 * Recipe likes were manually added to the database for this project. For the next milestone project a counter will be developed to track likes by registered users.
 * A view count could be implemented to track the number of times a recipe page was viewed
-* Further validation control could be implemented on user login and register to provide feedback to the user 
 * Custom form validation could be added using Javascript, currently HTML validation is used
 * The design of the database schema could be further improved to add functionality for tracking user activity on the website
 * Ingredients in the single recipe page could be displayed in bullet format using programming logic
