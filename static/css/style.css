@@ -81,16 +81,18 @@ nav ul a {
 }
 
 
+.base-text
+{
+    color: #FFF;
+    font-size: 2rem; 
+}
+
 .register-text {
     margin-bottom: 40px;
-    color: #FFF;
-    font-size: 2rem;
 }
 
 .profile-text {
      margin-bottom: 110px;
-     color: #FFF;
-     font-size: 2rem;
 }
 
 
